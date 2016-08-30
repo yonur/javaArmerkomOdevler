@@ -2898,5 +2898,1433 @@ public class Driver {
 	}
 }
 -------------------------------------------------------------------------------------------------------------------------------------
+********************************************algoritma_prog_guz_2012_odev_1***********************************************************
+Soru-1)
+
+Soru-3)
+
+import java.util.Scanner;
+
+public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		double r, alan, hacim;
+
+		System.out.print("Kurenin yari capini cm cinsinden giriniz: ");
+		
+		r = in.nextDouble();
+		
+		alan = Math.PI * r * r;
+		
+		hacim = (4*Math.PI*r*r*r)/3;
+		
+		System.out.println("Kurenin alani: " + alan + " cm^2 ve hacmi: " + hacim + " cm^3.");
+		
+		in.close();
+	}
+	
+}
+
+Soru-4)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+		
+			
+			double pozAvg, negAvg;
+			
+			int pozCount = 0;
+			int negCount = 0;
+			double pozSum = 0;
+			double negSum = 0;
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden kac adet sayi girilecegini giriniz: ");
+			int N = in.nextInt();
+				
+			double[] A = new double[N];
+			
+			for (int i = 0; i < N; i++){
+				System.out.print("Yeni sayi giriniz: ");
+				A[i] = in.nextDouble();
+			}
+			
+			for (int i = 0; i < N; i++){
+				if(A[i] > 0){
+					pozSum += A[i];
+					pozCount++;
+				}
+				else if (A[i] < 0){
+					negSum += A[i];
+					negCount++;
+				}
+			}
+			
+			pozAvg = pozSum / pozCount;
+			
+			negAvg = negSum / negCount;
+			
+			System.out.println("Pozitif sayilarin ortalamasi" + pozAvg);
+			
+			System.out.println("Negatif sayilarin sayisi" + negAvg);
+			
+			in.close();
+		}
+	
+}
+------------------------------------------------------------------------------------------------------------------------------------
+*******************************algoritma_prog_guz_2012_odev_2************************************************************************
+Soru-1)
+
+Soru-2)
+
+package test;
+import java.util.Scanner;;
+
+class Exam {
+
+	Scanner scan = new Scanner(System.in);
+	int row;
+	int column;
+	
+	Exam(int row, int column){
+		this.row = row;
+		this.column = column;
+	}
+	
+	void averageStudents(){
+		
+		int[][] arr = new int[row][column];	
+		for (int i = 0; i < row; i++)
+			for (int j = 0; j < column; j++)
+			{
+				System.out.println(i + "nolu ogrencinin " + j + ".inci ders notunu giriniz");
+				arr[i][j]  = scan.nextInt();
+			}
+		
+		int[] ortalama = new int[row];
+		int toplam;
+		
+		for (int i = 0; i < row; i++){
+			toplam = 0;
+			for (int j = 0; j < column; j++)
+			{
+				toplam += arr[i][j];
+			}
+			ortalama[i] = (toplam / column);
+		}
+		
+		for (int i = 0; i < row; i++)
+			for (int j = 0; j < column; j++)
+			{
+				if (arr[i][j] > ortalama[i])
+					System.out.println(i + "nolu ogrencinin " + j + ".inci dersten gecti");
+				else
+					System.out.println(i + "nolu ogrencinin " + j + ".inci dersten kaldi");
+		}
+	}	
+}
+
+public class Main {
+	public static void main(String arg[]){
+
+		Exam students = new Exam(4, 5);
+		
+		students.averageStudents();
+		
+	}
+}
+
+Soru-3)
+
+package test;
+
+public class detectNumberSigns {
+	public static void main (String arg[]){
+		int pozCount = 0;
+		int negCount = 0;
+		int zeroCount = 0;
+	int[] A = new int[100];
+	
+		for (int i = 0; i < 100; i++){
+			if(i%2 == 0)
+				A[i] = i;
+			else
+				A[i] = -i;
+		}
+		
+		for (int i = 0; i < 100; i++){
+			if (A[i] < 0)
+				negCount++;
+			else if (A[i] > 0)
+				pozCount++;
+			else zeroCount++;
+		}
+		System.out.println("Pozitif sayilarin sayisi" + pozCount);
+		
+		System.out.println("Negatif sayilarin sayisi" + negCount);
+		
+		if (zeroCount != 0)
+			System.out.println("Sýfýr elemaný mevcuttur");
+	}
+}
+
+Soru-4)
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Driver {
+	
+	private static void arrayTransposer(int myArr[][], int row, int column){
+		
+		int[][] myNewArray = new int[column][row];
+		
+		for (int i = 0; i < row; i++)
+			for(int j = 0; j < column; j++){
+				
+				myNewArray[j][i] = myArr[i][j];
+			}
+
+		System.out.println("Transposesi alinmis dizi: ");
+		
+		for (int i = 0; i < column; i++){
+			for (int j = 0; j < row; j++){
+				System.out.print(" " + myNewArray[i][j] + " ");
+			}
+			System.out.println();
+		}
+		 
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int m,n;
+		
+		System.out.print("Matrisin satir sayisini giriniz: ");
+		
+		m = in.nextInt();
+
+		System.out.print("Matrisin sutun sayisini giriniz: ");
+		
+		n = in.nextInt();
+
+		int[][] myArray = new int[m][n];
+		
+		Random r = new Random();
+		
+		for (int i = 0; i < m; i++)
+			for (int j = 0; j < n; j++){
+		
+			myArray[i][j] = r.nextInt(99);	
+	
+		}
+
+		System.out.println();
+
+		System.out.println("Esas dizi: ");
+
+		for (int i = 0; i < m; i++){
+			for (int j = 0; j < n; j++){
+			
+			System.out.print(" " + myArray[i][j] + " ");
+			
+			}
+			System.out.println();
+		}
+				
+		arrayTransposer(myArray, m, n);
+
+		System.out.println();
+		
+		in.close();
+	}
+	
+}
+
+Soru-5)
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Driver {
+	
+	private static void arrayTransposer(int myArr1[][], int row1, int column1, int myArr2[][], int row2, int column2){
+		
+		if (column1 != row2){
+			System.out.println("Girilen matris boyutlari carpim icin uygun degildir!");
+			System.exit(1);
+		}
+		int[][] myNewArray = new int[row1][column2];
+		
+		int temp = column1;
+		int sum;
+		
+		for (int i = 0; i < row1 ; i++){
+			for (int j = 0; j < column2; j++){
+				sum = 0;
+				for (int k= 0; k < temp; k++){
+					sum += myArr1[i][k] * myArr2[k][j];
+				}
+				myNewArray[i][j] = sum;	
+			}
+		}
+
+		System.out.println("Transposesi alinmis dizi: ");
+		
+		for (int i = 0; i < row1 ; i++){
+			for (int j = 0; j < column2; j++){
+				System.out.print(" " + myNewArray[i][j] + " ");
+			}
+			System.out.println();
+		}
+		 
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int m,n,k,l;
+		
+		System.out.print("Ilk matrisin satir sayisini giriniz: ");
+		
+		m = in.nextInt();
+
+		System.out.print("Ilk matrisin sutun sayisini giriniz: ");
+		
+		n = in.nextInt();
+
+		int[][] myArray = new int[m][n];
+		
+		Random r = new Random();
+		
+		for (int i = 0; i < m; i++)
+			for (int j = 0; j < n; j++){
+		
+			myArray[i][j] = r.nextInt(99);	
+	
+		}
+
+		System.out.println();
+
+		System.out.println("Esas dizi: ");
+
+		for (int i = 0; i < m; i++){
+			for (int j = 0; j < n; j++){
+			
+			System.out.print(" " + myArray[i][j] + " ");
+			
+			}
+			System.out.println();
+		}
+		
+		System.out.print("Ikinci matrisin satir sayisini giriniz: ");
+		
+		k = in.nextInt();
+
+		System.out.print("Ikinci matrisin sutun sayisini giriniz: ");
+		
+		l = in.nextInt();
+
+		int[][] myArray2 = new int[k][l];
+		
+		Random r2 = new Random();
+		
+		for (int i = 0; i < k; i++)
+			for (int j = 0; j < l; j++){
+		
+			myArray2[i][j] = r2.nextInt(99);	
+	
+		}
+
+		System.out.println();
+
+		System.out.println("Ikinci dizi: ");
+
+		for (int i = 0; i < k; i++){
+			for (int j = 0; j < l; j++){
+			
+			System.out.print(" " + myArray2[i][j] + " ");
+			
+			}
+			System.out.println();
+		}
+				
+		System.out.println("Iki dizinin carpimi: ");
+		
+		arrayTransposer(myArray, m, n, myArray2, k, l);
+		
+		System.out.println();
+		
+		in.close();
+	}
+	
+}
+------------------------------------------------------------------------------------------------------------------------------------
+*******************************************************AlgoritmaSorulariWord********************************************************
+Soru-1)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden baslangic sayisini girilecegini giriniz: ");
+			
+			int X = in.nextInt();
+			
+			System.out.print("Klavyeden bitis sayisini girilecegini giriniz: ");
+			
+			int N = in.nextInt();
+				
+			System.out.print("Klavyeden girilen sayilar ve arasindaki sayilar: ");
+			
+			for (int i = X; i <= N; i++){
+				
+				System.out.print(" " + i + " ");
+				
+			}
+			
+			System.out.println();
+			
+			in.close();
+		}
+	
+}
+	
+Soru-2)
+
+Soru-3)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	private static void bolenBulucu(int myValue){
+		
+		System.out.println("Klavyeden girilen sayinin tam bolenleri: ");
+		
+		for (int i = 1; i <= myValue; i++){
+			
+			if(myValue%i == 0)
+				System.out.print(" " + i + " ");
+		
+		}
+		 
+	}
+
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden bolenleri bulunacak sayiyi giriniz: ");
+			
+			int sayi = in.nextInt();
+			
+			bolenBulucu(sayi);
+			
+			in.close();
+		}
+	
+}
+	
+Soru-4)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	private static int min (int myArr[], int index, int size){
+		
+		int temp = 0;
+		
+		for (int i = 0; i < size ; i++)
+		{
+				temp = myArr[index];
+				
+				if (myArr[i] < temp)
+					return 0;
+				if (myArr[i] > temp && i == 2)
+					break;
+				
+		}
+		
+		return temp;			
+
+	}
+	
+	private static int max (int myArr[], int index, int size){
+	
+	int temp = 0;
+	
+		for (int i = 0; i < size; i++)
+		{
+				temp = myArr[index];
+				
+				if (myArr[i] > temp)
+					return 0;
+				if (myArr[i] < temp && i == 2)
+					break;
+				
+		}
+		
+		return temp;			
+	}
+	
+	private static void ortadakiBulucu(int myValue1, int myValue2, int myValue3){
+		
+		int[] arr = {myValue1, myValue2, myValue3};
+		
+		for (int i = 0; i < 3; i++){
+			if((min(arr,i,arr.length) == 0) && (max(arr,i,arr.length) == 0))
+				System.out.println("Ortadaki sayi " + arr[i]);
+		}
+		 
+	}
+
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden ortadaki bulunacak uc sayidan ilkini giriniz: ");
+			
+			int sayi1 = in.nextInt();
+			
+			System.out.print("Klavyeden ortadaki bulunacak uc sayidan ikincisini giriniz: ");
+			
+			int sayi2 = in.nextInt();
+			
+			System.out.print("Klavyeden ortadaki bulunacak uc sayidan ucuncusunu giriniz: ");
+			
+			int sayi3 = in.nextInt();
+			
+			ortadakiBulucu(sayi1, sayi2, sayi3);
+			
+			in.close();
+		}
+	
+}
+
+Soru-5)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden ilk sayiyi giriniz: ");
+			
+			double sayi = in.nextDouble();
+			
+			int sayici = 1;
+			
+			double top = 0;
+			
+			double ort;
+			
+			while (sayi != 0)
+			{
+				
+				top += sayi;
+				
+				ort = top / sayici;
+
+				sayici++;
+
+				System.out.println("Su ana kadarki girilen sayilarin ortalamasi: " + ort);
+				
+				System.out.print("Yeni sayi giriniz: ");
+				
+				sayi = in.nextDouble();
+				
+			}
+			
+			System.out.println("0 girisi kabul edilmemektedir. Hoscakalin.");
+			
+			in.close();
+		
+	}
+	
+}
+	
+Soru-6)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	private static void tekciftToplamBulucu(int newArr[], int size){
+		
+		int oddCounter = 0;
+		int evenCounter = 0;
+		for (int i = 0; i < size; i++){
+			
+			if (newArr[i] % 2 == 0)
+				evenCounter += newArr[i];
+			else if (newArr[i] % 2 == 1)
+				oddCounter += newArr[i];
+			
+		}
+		
+		System.out.println("Klavyeden girilen cift sayilarin toplami " + evenCounter + 
+				" tek sayilarin toplami " + oddCounter);
+		 
+	}
+
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			int []myArr = new int[20];
+			
+			System.out.print("Klavyeden ilk sayiyi giriniz: ");
+			
+			for (int i = 0; i < 20; i++){
+				
+				myArr[i] = in.nextInt();
+				
+				System.out.print("Klavyeden sonraki sayiyi giriniz: ");
+			}
+			
+			tekciftToplamBulucu(myArr, myArr.length);
+			
+			in.close();
+		
+	}
+	
+}
+	
+Soru-7)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden ilk sayiyi giriniz: ");
+			
+			double sayi = in.nextDouble();
+			
+			int sayici = 1;
+			
+			double top = 0;
+			
+			double ort;
+			
+			while (sayi != 0)
+			{
+				
+				top += (sayi*sayi);
+				
+				ort = top / sayici;
+
+				sayici++;
+
+				System.out.println("Su ana kadarki girilen sayilarin ortalamasi: " + ort);
+				
+				System.out.print("Yeni sayi giriniz: ");
+				
+				sayi = in.nextDouble();
+				
+			}
+			
+			System.out.println("0 girisi kabul edilmemektedir. Hoscakalin.");
+			
+			in.close();
+		
+	}
+	
+}
+
+Soru-8)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden sayiyi giriniz: ");
+			
+			int x = in.nextInt();
+			
+			int top = 0;
+			
+			for (int i = 1; i <= x; i++){
+				top += i;
+			}
+			
+			System.out.println("1' den x' e kadar olan sayilarin toplami: " + top);
+			
+			in.close();
+		
+	}
+	
+}
+
+Soru-9)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden ilk sayiyi giriniz: ");
+			
+			int A = in.nextInt();
+			
+			System.out.print("Klavyeden ikinci sayiyi giriniz: ");
+			
+			int B = in.nextInt();
+			
+			System.out.println(B + " " + A );
+			
+			in.close();
+		
+	}
+	
+}
+
+Soru-10)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden sayiyi giriniz: ");
+			
+			int sayi = in.nextInt();
+			
+			int bolucu = 10;
+			
+			int bolum;
+			
+			int basamak = 1;
+			
+			System.out.println(basamak + "ler basamagi " + sayi % bolucu);
+
+			bolum = sayi / bolucu;
+			
+			basamak *= 10;
+			
+			do{
+				System.out.println(basamak + " basamagi " + bolum % bolucu);
+				
+				basamak *= 10;
+			}
+			while ((bolum /= bolucu) != 0);
+			
+			System.out.print("Klavyeden ikinci sayiyi giriniz: ");
+	
+			in.close();
+		
+	}
+	
+}
+
+Soru-11)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden kac adet sayi girilecegini giriniz: ");
+			
+			int N = in.nextInt();
+			
+			int negCounter = 0;
+			int pozCounter = 0;
+			int negSum = 0;
+			int pozSum = 0;
+			int negAvg, pozAvg;
+			
+			int[] myArr = new int[N];
+			
+			System.out.print("Klavyeden sayi giriniz: ");
+			
+			for (int i = 0; i < N; i++){
+				myArr[i] = in.nextInt();
+				System.out.print("Yeni sayiyi giriniz: ");
+			}
+			
+			for (int i = 0; i < N; i++){
+				
+				if (myArr[i] < 0){
+					negSum += myArr[i];
+					negCounter++;
+				}else if(myArr[i] > 0){
+					pozSum += myArr[i];
+					pozCounter++;
+				}
+			
+			}
+	
+			negAvg = negSum / negCounter;
+			pozAvg = pozSum / pozCounter;
+			
+			System.out.println("Pozitif sayilarin ortalamasi " + pozAvg + 
+					" negatif sayilarin ortalamasi " + negAvg);
+			
+			in.close();
+		
+	}
+	
+}
+
+Soru-12)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);	
+			
+			int tDividedCounter = 0;
+		
+			int[] myArr = new int[10];
+			
+			System.out.print("Klavyeden sayi giriniz: ");
+			
+			for (int i = 0; i < 10; i++){
+				myArr[i] = in.nextInt();
+				System.out.print("Yeni sayiyi giriniz: ");
+			}
+			
+			System.out.println();
+			
+			for (int i = 0; i < 10; i++){
+				
+				if (myArr[i] % 3 == 0){
+					tDividedCounter++;
+					System.out.println( myArr[i] + " " + tDividedCounter);
+				}
+			}
+	
+			System.out.println("Klavyeden girilen sayilardan "
+					+ " uce bolunabilenlerin sayisi " + tDividedCounter );
+			
+			in.close();
+		
+	}
+	
+}
+
+Soru-13)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);	
+			
+			System.out.print("Klavyeden bir karakter giriniz: ");
+			
+			char myChar = in.nextLine().charAt(0);
+		
+			switch(myChar){
+			
+				case 'a': System.out.println("ANKARA");
+					break;
+				case 'b': System.out.println("BURSA");
+					break;
+				case 'r': System.out.println("BURSA");
+					break;
+				case 't': System.out.println("BURSA");
+					break;
+				case 'd': System.out.println("DENIZLI");
+					break;
+				case 'e': System.out.println("EDIRNE");
+					break;
+				case 'f': System.out.println("EDIRNE");
+					break;
+				case 'k': System.out.println("KIRIKKALE");
+					break;
+				default:
+					System.out.println("Girdiginiz harfin karsilik sehri yoktur.");
+			
+			}
+			
+			in.close();
+		
+	}
+	
+}
+
+Soru-14)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden sayiyi giriniz: ");
+			
+			int sayi = in.nextInt();
+			
+			int bolucu = 10;
+			
+			int bolum;
+			
+			System.out.println("Klavyeden girilen sayinin tersi: ");
+
+			System.out.print(sayi % bolucu);
+
+			bolum = sayi / bolucu;	
+			
+			do{
+				System.out.print(bolum % bolucu);
+			}
+			while ((bolum /= bolucu) != 0);
+			
+			System.out.println();
+
+			in.close();
+		
+	}
+	
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+**********************************************AlgoritmaveProgramlama_Odev3***********************************************************
+Soru-1)
+public class Driver {
+	
+	private static void arraySummer (int array[], int size){
+
+		if (size > 100){
+			System.out.println("Dizi boyutu istenen buyuklugun ustundedir");
+			System.exit(1);
+		}
+		
+		int oddCounter = 0; //tek sayi sayici
+		int evenCounter = 0; //cift sayici
+		int oddTempSum = 0;
+		int evenTempSum = 0;
+		
+				for (int i = 0; i < size; i++){
+					if (array[i] % 2 == 0){
+						
+						if (evenCounter == 0){
+							System.out.print(" " + array[i] + " ");
+							evenTempSum = array[i];
+							evenCounter++;
+						}else {
+							evenTempSum += array[i];							
+							System.out.print(" " + evenTempSum + " ");
+						}
+						
+					}
+					else if (array[i] % 2 == 1){
+						
+						if (oddCounter == 0){
+							System.out.print(" " + array[i] + " ");
+							oddTempSum = array[i];
+							oddCounter++;
+						}else {
+							oddTempSum += array[i];							
+							System.out.print(" " + oddTempSum + " ");
+						}
+					}
+				}
+
+	}
+	
+	public static void main(String arg[]){
+		
+		int[] myArray = new int[10];
+		
+		Random r = new Random();
+		for (int i = 0; i < 10; i++){
+		
+			myArray[i] = r.nextInt(20);	
+	
+		}
+
+		for (int i = 0; i < 10; i++){
+			
+			System.out.print(" " + myArray[i] + " ");
+			
+		}
+		
+		System.out.println();
+		
+		arraySummer(myArray, 102);
+		
+	}
+}
+
+Soru-2)
+
+public class Driver {
+	
+	public static void main(String arg[]){
+		
+		Scanner strIn = new Scanner(System.in);
+		String myStr;
+
+		System.out.print("String ifadeyi giriniz: ");
+		myStr = strIn.nextLine();
+		
+		System.out.println(myStr);
+					
+		myStr = myStr.toUpperCase();
+		
+		System.out.println(myStr);
+
+		strIn.close();
+	}
+}
+
+Soru-3)
+
+public class Driver {
+	
+	public static void main(String arg[]){
+		
+		float[] myArray = new float[10];
+		float[] myNewArray = new float[10];
+		
+		float sum = 0;
+		float average;
+		int counter = 0;
+		Random r = new Random();
+		
+		for (int i = 0; i < 10; i++){
+			myArray[i] = r.nextInt(20);	
+		}
+
+		for (int i = 0; i < 10; i++){
+			System.out.print(" " + myArray[i] + " ");
+			sum += myArray[i];
+		}
+		
+		System.out.println();
+		
+		average = sum / myArray.length; 
+		
+		System.out.println("Ortalama: " + average);
+		
+		for (int i = 0; i < myArray.length; i++){
+			if (myArray[i] >= average){
+				myNewArray[counter++] = myArray[i]; 
+			}
+		}
+		
+		for (int i = 0; i < myArray.length; i++){
+			
+			if(myArray[i] < average){
+			    myNewArray[counter++] = myArray[i];
+			}
+		}
+		
+		for (int i = 0; i < 10; i++){	
+			System.out.print(" " + myNewArray[i] + " ");
+		}
+		
+	}
+}
+
+Soru-4)
+
+public class Driver {
+	
+	public static void main(String arg[]){
+		
+		Scanner strIn = new Scanner(System.in);
+		String myStr;
+		char ch;
+		
+		System.out.print("Ifadeyi giriniz: ");
+		myStr = strIn.nextLine();
+		
+		System.out.print("Ekrana basilmasini istemediginiz karakteri giriniz: ");
+		ch = strIn.next().charAt(0);
+		
+		for (int i = 0; i < myStr.length(); i++){
+			
+			if(myStr.charAt(i)!= ch){
+				System.out.print(myStr.charAt(i));
+			} 
+		}
+		
+		strIn.close();
+		
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+************************************************AlgoritmaveProgramlama_Odev4*******************************************************
+Soru-1)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	private static double fact (int myValue){
+		
+		double myFact = 1;
+		
+		if(myValue < 0){
+			System.out.println("Lutfen 0' dan buyuk esit bir sayi giriniz!");
+			System.exit(1);
+		}
+		
+		if (myValue > 0){
+			for(int i = 1; i <= myValue; i++){
+				myFact *= i;
+			}
+		}
+		
+		return myFact;
+	}
+	
+	private static double eCalc (int myN){
+	
+		double myE = 0;
+		
+		if (!(myN < 0)){
+			for (int i = 0; i <= myN; i++){
+				myE += (1/fact(i));
+			}
+		}
+		return myE; 
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner myIn = new Scanner(System.in);
+		int myInt;
+		double myE;
+		
+		System.out.print("n sayisini giriniz: ");
+		myInt = myIn.nextInt();
+		myE = eCalc(myInt);
+		
+		System.out.println("Girilen " + myInt + " sayisinin e degeri: " + myE);
+		
+		myIn.close();
+		
+	}
+}
+
+Soru-2)
+
+import java.util.Random;
+
+public class Driver {
+	
+	private static void indexSummer (int array[]){
+
+		for (int i = 0; i < array.length; i++){
+			array[i] += i;
+			System.out.print(" " + array[i] + " ");
+		}
+		System.out.println();
+
+	}
+	
+	public static void main(String arg[]){
+		
+		int[] myArray = new int[10];
+		
+		Random r = new Random();
+		for (int i = 0; i < 10; i++){
+		
+			myArray[i] = r.nextInt(20);	
+	
+		}
+
+		for (int i = 0; i < 10; i++){
+			
+			System.out.print(" " + myArray[i] + " ");
+			
+		}
+		
+		System.out.println();
+		
+		indexSummer(myArray);
+		
+	}
+}
+
+Soru-3)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	private static int arraySearcher(String myStr, char ch){
+		
+		int counter = 0;
+		
+		for (int i = 0; i < myStr.length(); i++){
+			if(myStr.charAt(i) == ch)
+				counter++;
+		}
+		return counter;
+
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner strIn = new Scanner(System.in);
+		String myStr;
+		char myChar;
+		
+		System.out.print("String ifadeyi giriniz: ");
+		myStr = strIn.nextLine();
+		
+		System.out.println("Ifadem: " + myStr);
+		
+		System.out.print("Ifadede aranacak harfi giriniz: ");
+		myChar = strIn.next().charAt(0);
+		
+		System.out.println("Ifadede arancak harf: " + myChar);
+		
+		System.out.println("Ifadedeki aranan harf sayisi: " + arraySearcher(myStr,myChar));
+		
+		strIn.close();
+	}
+	
+}
+
+Soru-4)
+
+public class Driver {
+	
+	private static void stringReverser(String myStr){
+		
+		for (int i = myStr.length() -1 ; i >= 0 ; i--){
+			System.out.print(myStr.charAt(i));
+		}
+
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner strIn = new Scanner(System.in);
+		
+		String myStr;
+		
+		System.out.print("String ifadeyi giriniz: ");
+		
+		myStr = strIn.nextLine();
+		
+		System.out.print("Ifadenin tersi: ");
+
+		stringReverser(myStr);
+		
+		strIn.close();
+	}
+	
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+*********************************************AlgoritmaveProgramlama_Odev5***********************************************************
+Soru-1)
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Driver {
+	
+	private static int[][] arrayExtracter(int myArr[][], int row, int column){
+		
+		int[][] newArr = new int[row-2][column-2]; //n-2,n-2 cikarilacak matrisin aktarilacagi 
+												   //gecici dizi olusturulur.
+		for (int i = 1 ; i < row - 1; i++)
+			for (int j = 1; j < column - 1; j++){
+			
+				newArr[i-1][j-1] = myArr[i][j]; //parametre olan dizideki n-2, n-2 araligindaki
+												//elemanlar geri dondurulecek yeni olusturulan 
+												//matrise aktarilir.
+		}
+
+		return newArr; 
+	}
+	
+	private static int[][] arraySummer(int myArr[][], int row, int column){
+		
+		int[][] newArr = new int[row][column];
+		
+		int sum; //gecici toplayiciyi tanimla
+		
+		if(row > 3 && column > 3) //eger parametre olarak alinan dizinin satir ve sutun
+								  //boyutu 3' ten buyukse
+		{
+				for (int i = 0; i < row - 2; i++){ //satir sayisi tamamlanmaya 2 eksige kadar
+		
+					for (int j = 0; j < column - 2; j++){ //sutun sayisi tamamlanmaya 2 eksige kadar
+					
+						sum = 0; //gecici toplayiciyi sifirla
+						
+						//Bulundugumuz konum [0][0].inci eleman olmak uzere 3x3'luk matrisin elemanlarinin
+						//ortalamasini elde edecegiz.
+						for (int k = i; k < i + 3; k++) // sirasiyla satiri bulundugu konumdan 
+														//3 buyugune kadar arttir
+							for (int l = j; l < j + 3; l++){ // sirasiyla satiri bulundugu konumdan
+															//3 buyugune kadar
+								sum += myArr[k][l];			//sirasiyla elemanlari gecici toplayiciya ekle
+							}
+						newArr[i][j] = (sum/9); //toplamlarin ortalamasi
+					}
+					for (int j = column - 2; j < column; j++){ //sutun sayisinin tamamlanmas
+						
+						sum = 0;
+						
+						for (int k = i; k < i + 3; k++)
+		
+							for (int l = j; l > j - 3; l--){
+								
+								sum += myArr[k][l];
+							}
+						newArr[i][j] = (sum/9);
+					}
+					
+				}
+			
+				for (int i = row - 2; i < row; i++){
+					
+					for (int j = 0; j < column - 2; j++){
+						
+						sum = 0;
+						
+						for (int k = i; k > i - 3; k--)
+							for (int l = j; l < j + 3; l++){
+								
+								sum += myArr[k][l];
+							}
+						newArr[i][j] = (sum/9);
+					}
+					for (int j = column - 2; j < column; j++){
+					
+						sum = 0;
+						
+						for (int k = i; k > i - 3; k--)
+							for (int l = j; l > j - 3; l--){
+								
+								sum += myArr[k][l];
+							}
+						newArr[i][j] = (sum/9);
+					}
+				}
+		}else{
+
+			for (int i = 0; i < row; i++)
+				for (int j = 0; j < column; j++){
+					sum  = 0;
+					
+					for (int k = i; k < row; k++)
+						for (int l = j; l < column; l++){
+							sum += myArr[k][l];
+						}
+					newArr[i][j] = (sum/9);
+				}
+		}
+		
+		return newArr;
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int n;
+		
+		System.out.print("Matrisin satir sutun boyutunu giriniz: ");
+		
+		n = in.nextInt();
+
+		int[][] myArray = new int[n][n];
+		
+		Random r = new Random();
+		
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < n; j++){
+		
+			myArray[i][j] = r.nextInt(99);	
+	
+		}
+
+		System.out.println();
+
+		for (int i = 0; i < n; i++){
+			for (int j = 0; j < n; j++){
+			
+			System.out.print(" " + myArray[i][j] + " ");
+			
+			}
+			System.out.println();
+		}
+				
+		int[][] myNewArray = new int[n - 2][n - 2];
+		
+		myNewArray = arrayExtracter(myArray, n, n);
+
+		System.out.println();
+
+		for (int i = 0; i < n - 2; i++){
+			for (int j = 0; j < n - 2; j++){
+			
+			System.out.print(" " + myNewArray[i][j] + " ");
+			
+			}
+			System.out.println();
+		}
+		
+		int[][] myFinalArray = new int[n-2][n-2];
+		
+		myFinalArray = arraySummer(myNewArray, n - 2,n - 2);
+
+		System.out.println();
+
+		for (int i = 0; i < n - 2; i++){
+			for (int j = 0; j < n - 2; j++){
+			
+			System.out.print(" " + myFinalArray[i][j] + " ");
+			
+			}
+			System.out.println();
+		}
+		
+		in.close();
+	}
+	
+}
+-------------------------------------------------------------------------------------------------------------------------------------
 
 
