@@ -4326,5 +4326,208 @@ public class Driver {
 	
 }
 -------------------------------------------------------------------------------------------------------------------------------------
+************************************************algoritmaCprogramlama*************************************************************
+import java.util.Scanner;
 
+class Account {
+	
+	private int password;
+	private String userName;
+	private int money;
+	
+	//public int bankMoney;
+	
+	Account(int pass, String user, int accountMoney){
+		password = pass;
+		userName = user;
+		money = accountMoney;
+	}
+	
+	Account(){
+		password = 0;
+		userName = "bos";
+		money = 0;
+	}
+	
+	int myAccResult(Account ext){
+		
+		if((password == ext.password) && (userName == ext.userName))
+			return 1;
+		else
+			return 0;
+		
+	}
+	
+	int showMoney(){
+		return money;
+	}
+	
+	void showName(){
+		System.out.println(userName + " kullanicisinin hesabina giris yaptiniz ");		
+	}
+	
+	int nameControl(String str){
+		if (str ==  userName)
+			return 1;
+		else 
+			return 0;
+	}
+	
+	int moneyAdd(Account a, int newMoney, int mainMoney){
+		a.money += newMoney;
+		mainMoney += newMoney;
+
+		return a.money;
+	}
+	
+	int moneySubtract(Account a, int minusMoney, int mainMoney){
+
+			if (a.money >= minusMoney){
+				mainMoney -= minusMoney;
+				a.money -= minusMoney;
+				return a.money;
+
+			}
+		
+		return 0;
+		
+	}
+	
+}
+
+public class Driver {
+	
+	public static void main(String arg[]){
+					
+			Scanner in = new Scanner(System.in);
+		
+			int tempPass;	
+			String tempUser;
+		
+			int newAddMoney;
+			int newSubtractMoney;
+	
+			int tempSubtract;	
+			int tempInput = -1;
+			
+			int accIndex = -1;
+
+			int bank = 0;
+
+			//Sistemde tanimlanmis kullanicilar
+
+			Account[] accArr = new Account[3];
+			
+			accArr[0] = new Account(123,"onur",0);
+			
+			accArr[1] = new Account(1234,"abuzittin",0);
+
+			accArr[2] = new Account(1237,"hagi",0);
+
+			System.out.println("Sistemden cikmak icin 0 a basınız");
+			
+			System.out.print("Klavyeden kullanici adini giriniz: ");
+			
+			tempUser= in.next();
+			
+			System.out.print("Sifrenizi giriniz: ");
+
+			tempPass = in.nextInt();
+
+			int res;
+			
+			Account tp = new Account(tempPass, tempUser, bank);
+			
+			while (tempUser.charAt(0) != '\n'){	
+														
+				for (int index = 0; index < 3; index++){
+					res = accArr[index].myAccResult(tp);
+
+					if( ( res ) == 1){
+						accIndex = index;
+						accArr[accIndex].showName();
+						break;
+					}
+					else {
+						System.out.println("Lutfen gecerli bir kullanici giriniz!");
+						
+					}
+				}
+				
+				if (accIndex != -1){
+					
+					while (tempInput != 0){
+						System.out.println("Asagidaki islemlerden hangisini yapmak "
+								+ "istiyorsunuz");
+						System.out.println("Kendi hesabinizdaki miktari gormek icin 1 giriniz");
+						System.out.println("Kendi hesabiniza para eklemek icin 2 giriniz");
+						System.out.println("Kendi hesabinizdan para cekmek icin 3 giriniz");
+						System.out.println("Baska hesaba para gondermek icin 4 giriniz");
+						System.out.println("Cikmak icin 0 giriniz");
+						
+						tempInput = in.nextInt();
+						
+						switch(tempInput){
+							case 1:
+								System.out.println("Hesabinizdaki para " + accArr[accIndex].showMoney());
+								break;
+							case 2:
+								System.out.print("Hesabiniza ne kadar "
+										+ "para eklemek istediginizi giriniz: ");
+								newAddMoney = in.nextInt();
+								accArr[accIndex].moneyAdd(accArr[accIndex], newAddMoney,bank);
+					
+								break;
+							case 3:
+								System.out.print("Hesabinizdan ne kadar "
+										+ "para cekmek istediginizi giriniz: ");
+								newSubtractMoney = in.nextInt();
+								if ( ( tempSubtract = accArr[accIndex].moneySubtract(accArr[accIndex], newSubtractMoney,bank) ) == 0){
+									System.out.println("Hesapta olandan fazla para cekilemez");
+									break;
+								}
+								break;
+							case 4:
+								System.out.println("Para gondermek istediginiz "
+										+ "hesabin kullanici adini giriniz");
+								tempUser = in.next();
+								for (int i = 0; i < accArr.length; i++){
+									if(accArr[i].nameControl(tempUser) == 1){
+										System.out.print("Gondereceginiz miktari giriniz: ");
+										newAddMoney = in.nextInt();
+										accArr[i].moneyAdd(accArr[i], newAddMoney,bank);
+							
+										break;
+									}
+									else {
+										System.out.println("Lutfen gecerli bir kullanici giriniz!");
+										break;
+									}
+								}
+								break;
+							default:
+								System.out.println("Lutfen gecerli bir miktar giriniz!");
+								break;
+						}
+						
+					}
+
+				}
+				
+				System.out.print("Kullanici adini giriniz: ");
+				
+				tempUser= in.nextLine();
+				
+				System.out.print("Sifrenizi giriniz: ");
+
+				tempPass = in.nextInt();
+
+
+			}
+			
+			in.close();
+		
+	}
+	
+}
 
