@@ -1,2 +1,2902 @@
 # javaArmerkomOdevler
-deneme
+--------------------------------------------ALGORITMA70_SORU----------------------------------------------------------------------------
+Soru-1)
+
+import java.util.Scanner;
+
+class Fact {
+	
+	int factValue;
+	
+	Fact(int f){
+		
+		factValue = f;
+	}
+	
+	long myFactResult(){
+		
+		long factResult = 1;
+	
+		for (int i = 1; i <= factValue; i++)
+			factResult *= i;
+
+		return factResult;
+	}
+}
+
+public class Driver {
+	public static void main(String arg[]){
+
+		long factResult;
+		
+		int myint;
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		System.out.print("Please enter a new value between 1 and 25: ");
+			
+		myint = keyboard.nextInt();
+
+		while(myint > 1 && myint < 25){
+			
+			Fact myfact = new Fact(myint);
+			
+			factResult = myfact.myFactResult();
+
+			System.out.println("My new value: " + myint);
+
+			System.out.println("My factoriel result is: " + factResult);
+			
+			System.out.print("Please enter a new value between 1 and 25: ");
+			
+			if (keyboard.hasNextInt())
+				myint = keyboard.nextInt();
+			else{
+				break;
+			}
+		}
+		
+		System.out.println("Value is not between please try again  later");
+		
+		System.out.println("Bye");
+	}
+}
+
+Soru-2)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		int myint;
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.print("Please enter a new value between 10 and 15: ");
+
+		do
+		{			
+			myint = keyboard.nextInt();
+			
+			System.out.println("My new value: " + myint);
+			
+			if( (!( myint > 10 && myint < 15 )) )
+				System.out.print("Please enter a new value between 10 and 15: ");
+			
+		}
+		while( (!( myint > 10 && myint < 15 )) && ( keyboard.hasNextInt()) );
+		
+		System.out.println("Value is: " + myint);
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-3)
+
+class Square {
+	
+	long squareResult(int myValue){
+		
+		long squareResult;
+	
+		squareResult = myValue * myValue;
+
+		return squareResult;
+	}
+}
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		long squareSum = 0;
+		
+		int counter = 1;
+		
+		Square mysquare = new Square();
+		
+		while (counter < 26){
+			
+			squareSum += mysquare.squareResult(counter++);
+		}
+		
+		System.out.println("Square values sum is " + squareSum);
+		
+	}
+}
+
+Soru-4)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		int myint;
+		
+		int counter = 0;
+		
+		int[] myArray = new int[10];
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.print("Please enter maximum 10 values: ");
+
+		do
+		{			
+			myint = keyboard.nextInt();
+			
+			System.out.println("My new value: " + myint);
+			
+			myArray[counter] = myint;
+			
+			counter++;
+		}
+		while( ( counter < 10 ) && ( keyboard.hasNextInt()) );
+		
+		int negcounter = 0;
+		
+		for (int i = 0; i < 10; i++){
+			
+			if (myArray[i] < 0)
+				negcounter++;
+			
+			}
+		
+		System.out.println("Negatif values count is " + negcounter);
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-5)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		double secondOrder, firstOrder, zeroOrder, disc, x1, x2, x, sqrtDisc;
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("Ikinci dereceden bir denklemin kokleri bulunacaktir");
+		
+		System.out.print("Lutfen denklemin ikinci dereceden elemaninin katsayisini giriniz ");
+							
+		secondOrder = keyboard.nextDouble();
+		
+		System.out.print("Lutfen denklemin birinci dereceden elemaninin katsayisini giriniz");
+			
+		firstOrder = keyboard.nextDouble();
+		
+		System.out.print("Lutfen denklemin sifirinci dereceden elemaninin katsayisini giriniz");
+
+		zeroOrder = keyboard.nextDouble();
+		
+		System.out.println("Denkleminiz: " + secondOrder + " * x^2 + ( " + firstOrder + " ) * x + " + zeroOrder);
+		
+		disc = (firstOrder)*(firstOrder) - 4 * secondOrder * zeroOrder;
+		
+		if (disc > 0){
+			
+			sqrtDisc = Math.sqrt(disc);
+			
+			x1 = ( ( -firstOrder ) - sqrtDisc ) / ( 2 * secondOrder );
+			
+			System.out.println("Denklemin iki adet koku vardir");
+			
+			System.out.print("Bunlardan biri: " + x1 + " 'dir. ");
+			
+			x2 = ( (-firstOrder) + sqrtDisc ) / ( 2 * secondOrder );
+			
+			System.out.print("Digeri ise: " + x2 + " 'dir.");
+			
+		} else if (disc == 0){
+		
+			x = ( -firstOrder ) / ( 2 * secondOrder );
+			
+			System.out.println("Denklemin tek koku vardir o da x: " + x + " 'dir.");
+			
+		} else 
+			System.out.println("Denklemin reel koku yoktur.");			
+
+		keyboard.close();
+		
+	}
+}
+
+Soru-6)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int month;
+		
+		String monthString;
+		
+		System.out.print("Klavyeden 1 ile 12 arasinda bir sayi giriniz: ");
+		
+		month = keyboard.nextInt();
+		
+		while ((month > 0 && month < 13)) {
+		
+			switch (month) {
+            case 1:  monthString = "January";
+                     break;
+            case 2:  monthString = "February";
+                     break;
+            case 3:  monthString = "March";
+                     break;
+            case 4:  monthString = "April";
+                     break;
+            case 5:  monthString = "May";
+                     break;
+            case 6:  monthString = "June";
+                     break;
+            case 7:  monthString = "July";
+                     break;
+            case 8:  monthString = "August";
+                     break;
+            case 9:  monthString = "September";
+                     break;
+            case 10: monthString = "October";
+                     break;
+            case 11: monthString = "November";
+                     break;
+            case 12: monthString = "December";
+                     break;
+            default: monthString = "Invalid month";
+                     break;
+			}
+			
+			System.out.println("Girdiginiz rakamin karsiligi ay: " + monthString + " 'dir");
+		
+			System.out.print("Klavyeden 1 ile 12 arasinda yeni bir sayi giriniz: ");
+			
+			month = keyboard.nextInt();
+		}
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-7)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int mathCode;
+		
+		int x1, x2;
+		
+		System.out.print("Klavyeden  giriniz '+' islemi icin 1 kodunu '-' islemi icin 2 kodunu '*' islemi icin 3 kodunu '/' islemi icin 4 kodunu giriniz: ");
+		
+		mathCode = keyboard.nextInt();
+		
+		System.out.print("Birinci sayiyi giriniz: ");
+		
+		x1 = keyboard.nextInt();
+		
+		System.out.print("Ikinci sayiyi giriniz: ");
+		
+		x2 = keyboard.nextInt();
+		
+			switch (mathCode) {
+        		    case 1:  
+        		    	System.out.println("Sonuc: " + (x1 + x2));
+            			break;
+            		    case 2:
+            			System.out.println("Sonuc: " + (x1 - x2));
+                     		break;
+            		    case 3: 
+            			System.out.println("Sonuc: " + (x1 * x2));
+                     		break;
+            	            case 4: 
+            			System.out.println("Sonuc: " + (x1 / x2));
+                     		break;
+            	            default: 
+            			System.out.println("Gecerli bir kod degildir");
+                     		break;
+			}
+		
+		
+		System.out.println("Gule Gule");
+		
+		keyboard.close();
+		
+	}
+}
+
+
+Soru-8)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int newInput;
+		
+		int sum = 0;
+		
+		System.out.print("Please enter a new value which isn't negative: ");
+		
+		newInput = keyboard.nextInt();
+		
+		while (newInput >= 0){
+			
+			sum += newInput;
+			
+			System.out.println("New sum is: " + sum);
+			
+			System.out.print("Please enter a new value which isn't negative: ");
+			
+			newInput = keyboard.nextInt();
+			
+		}
+
+		System.out.println("Oops! This is negative value.");
+		
+		System.out.println("Final sum is: " + sum);
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+		
+	}
+}
+
+
+Soru-9)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.print("Yeni bir not giriniz: ");
+		
+		int newInput = keyboard.nextInt();
+		
+		while (newInput > 0 && newInput < 100){
+						
+			if (newInput > 0 && newInput < 50)
+				System.out.println("Basarisiz");
+			else if(newInput >= 50 && newInput < 65)
+				System.out.println("Orta");
+			else if (newInput >= 65 && newInput < 85)
+				System.out.println("Iyi");
+			else 
+				System.out.println("Cok iyi");
+			
+			System.out.print("Yeni bir not giriniz: ");
+
+			newInput = keyboard.nextInt();
+			
+		}
+		
+		System.out.println("Gecerli aralikta bir sayi girmediniz");
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+}
+
+Soru-10)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int x1, x2;
+		
+		System.out.print("Birinci sayiyi giriniz: ");
+		
+		x1 = keyboard.nextInt();
+		
+		System.out.print("Ikinci sayiyiyi giriniz: ");
+		
+		x2 = keyboard.nextInt();
+		
+		if (x1 > x2)
+			System.out.println("Buyuk sayi " + x1);
+		else if (x2 > x1)
+			System.out.println("Buyuk sayi " + x2);
+		else
+			System.out.println("Sayilar birbirine esittir");
+		
+		keyboard.close();
+	}
+}
+
+Soru-11)
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int x1, x2, temp;
+		
+		System.out.print("Birinci sayiyi giriniz: ");
+		
+		x1 = keyboard.nextInt();
+		
+		System.out.print("Ilk sayinin kuvveti olacak ikinci sayiyiyi giriniz: ");
+		
+		x2 = keyboard.nextInt();
+		
+		temp = x1;
+		
+		for (int i = 1; i < x2; i++ ){
+			
+			x1 *= temp;
+			
+		}
+		
+		System.out.println("Kuvveti alinmis ilk sayi: " + x1);
+		
+		keyboard.close();
+	}
+}
+
+Soru-12)
+
+import java.util.Scanner;
+
+class Fact {
+	
+	int factValue;
+	
+	Fact(int f){
+		
+		factValue = f;
+	}
+	
+	long myFactResult(){
+		
+		long factResult = 1;
+	
+		for (int i = 1; i <= factValue; i++)
+			factResult *= i;
+
+		return factResult;
+	}
+}
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		int myint;
+		
+		long factResult;
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.print("Please enter the value to find its factoriel: ");
+
+		do {
+		
+			myint = keyboard.nextInt();
+			
+			Fact myFact = new Fact(myint);
+			
+			factResult = myFact.myFactResult();
+			
+			System.out.println("Factoriel result is: " + factResult);
+	
+			System.out.print("Please enter the new value to find its factoriel: ");
+
+		} while (keyboard.hasNext());
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+}
+
+Soru-13)
+
+class Square {
+	
+	long squareResult(int myValue){
+		
+		long squareResult;
+	
+		squareResult = myValue * myValue;
+
+		return squareResult;
+	}
+}
+
+
+class SquareSum {
+	
+	long sum = 0;
+	
+	Square mysquare = new Square();
+	
+	long squareSum (int squareLim){
+		for (int i = 1; i <= squareLim; i++){
+			sum += mysquare.squareResult(i);
+		}
+		return sum;
+	}
+}
+
+public class Driver {
+	public static void main(String arg[]){
+		
+		int myint;
+		
+		long result;
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.print("Please enter the value to find its square sums until the value: ");
+
+		myint = keyboard.nextInt();
+			
+		SquareSum newsumSquare = new SquareSum();
+		
+		result = newsumSquare.squareSum(myint);
+		
+		System.out.println("Result is: " + result);
+		
+		keyboard.close();
+	}
+}
+
+Soru-14)
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+			
+			String mathCode;
+			
+			int x1, x2;
+			
+			System.out.print("Klavyeden yapmak istediginiz dort islemi giriniz ('+', '-', '*', '/') : ");
+			
+			mathCode = keyboard.next();
+			
+			System.out.print("Birinci sayiyi giriniz: ");
+			
+			x1 = keyboard.nextInt();
+			
+			System.out.print("Ikinci sayiyi giriniz: ");
+			
+			x2 = keyboard.nextInt();
+			
+				switch (mathCode) {
+	        		    case "+":  
+	        		    	System.out.println("Sonuc: " + (x1 + x2));
+	            			break;
+	            	    case "-":
+	            			System.out.println("Sonuc: " + (x1 - x2));
+	                     	break;
+	            		case "*": 
+	            			System.out.println("Sonuc: " + (x1 * x2));
+	                     	break;
+	                    case "/": 
+	            			System.out.println("Sonuc: " + (x1 / x2));
+	                     	break;
+	            	    default: 
+	            			System.out.println("Dort islem operatoru gecerli bir islem degildir");
+	                   		break;
+				}
+			
+			
+			System.out.println("Gule Gule");
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-15)
+
+class VelocityCalc {
+	
+	int speedValue = 60;
+	
+	
+	int myTimeResult(int totalDistance){
+		
+		int totalTime;
+		
+		totalTime = totalDistance / speedValue;
+		
+		return totalTime;
+		
+	}
+}
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+			
+			int distance, time;
+			
+			System.out.print("Klavyeden toplam gittiginiz mesafeyi km cinsinden giriniz: ");
+			
+			distance = keyboard.nextInt();
+			
+			VelocityCalc myTime = new VelocityCalc();
+			
+			time = myTime.myTimeResult(distance);
+			
+			System.out.println("Toplam harcanan zaman: " + time + " saattir");
+			
+			System.out.println("Gule Gule");
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-16)
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int[] myArray = new int[10];			
+			
+			System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+			
+			for (int i = 0; i < 10; i++){
+				
+				System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+				myArray[i] = keyboard.nextInt();
+				
+			}
+
+			
+			System.out.println("Dizinin elemanlari: ");
+			
+			for (int i = 0; i < 10; i++){
+			
+				System.out.println(" " + myArray[i] + " ");	
+			
+			}
+
+			int temp;
+			
+			for ( int i = 1; i < 10; i++ ){
+				for ( int j = 0; j < 10 - i; j++ )
+					if (myArray[j] < myArray[j + 1]){
+						temp = myArray[j + 1];
+						myArray[j + 1] = myArray[j];
+						myArray[j] = temp;
+					}			
+			}
+			
+			System.out.println("Dizinin elemanlari buyukten kucuge: ");
+			
+			for (int i = 0; i < 10; i++){
+			
+				System.out.println(" " + myArray[i] + " ");	
+			
+			}
+			
+			System.out.println("Bye");
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-17)
+
+Soru-18) 
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int myInt, zeroCounter;			
+			
+			System.out.println("Klavyeden sonundaki sifir sayisinin bulunacagi sayiyi giriniz: ");
+			
+			myInt = keyboard.nextInt();
+			
+			zeroCounter = 0;
+			
+			while ((myInt % 5) == 0){
+				
+				myInt /= 5;
+				
+				zeroCounter++;
+			
+			}
+			
+			System.out.println("Sayinin sonundaki sifir sayisi: " + zeroCounter);
+			
+			System.out.println("Bye");
+			
+			keyboard.close();
+			
+		}
+	}
+Soru-19) Bu soruya bakilacak?
+
+Soru-20) 
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int myValue, sum;			
+			
+			sum = 0;
+			
+			System.out.print("Klavyeden o sayiya kadar toplami bulunacak sayiyi giriniz: ");
+			
+			myValue = keyboard.nextInt();
+		
+			for (int i = 1; i <= myValue; i++){
+				
+				sum += i;
+				
+			}
+			
+			System.out.println("Toplam: " + sum);
+			
+			keyboard.close();
+			
+		}
+	}
+
+
+Soru-21)
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int myValue;
+			
+			int[] myArray = new int[10];
+			
+			myArray = new int[]{2,4,5,67,2,67,21,4,9,0};
+			
+			System.out.print("Klavyeden dizide aranacak elemani giriniz: ");
+			
+			myValue = keyboard.nextInt();
+			
+			int counter = 0;
+			
+			for (int i = 0; i < 10; i++){
+				
+				if ( myArray[i] == myValue)
+					
+					counter++;	
+				
+			}
+			
+			System.out.println("Klavyeden girilen eleman dizide " + counter + " adet bulunmaktadir.");
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-22)
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int myValue;
+			
+			System.out.print("Klavyeden dizide aranacak elemani giriniz: ");
+			
+			myValue = keyboard.nextInt();
+			
+			for (int i = 2; i < myValue; i++){
+				
+				if (myValue % i == 0){
+				
+					System.out.println("Klavyeden girilen sayi asal degildir.");
+					
+					keyboard.close();
+					
+					return;
+				}
+				else 
+					continue;
+
+			}
+			
+			System.out.println("Klavyeden girilen sayi asaldir");
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-23) Bu cevapta class kullanarak bir iyilestirme YAP!
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int myArrayMax;
+
+			int myArrayMin;
+			
+			int[] myArray = new int[10];			
+			
+			System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+			
+			for (int i = 0; i < 10; i++){
+				
+				System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+				myArray[i] = keyboard.nextInt();
+				
+			}
+			
+			myArrayMax = myArray[0];
+			
+			for (int i = 0; i < 10 ; i++){
+				
+				if (myArray[i] > myArrayMax)
+				
+					myArrayMax = myArray[i];
+							
+			}
+			
+			System.out.println("En buyuk sayi " + myArrayMax);
+			
+			myArrayMin = myArray[0];
+			
+			for (int i = 0; i < 10 ; i++){
+				
+				if (myArray[i] < myArrayMin)
+				
+					myArrayMin = myArray[i];
+			
+			}
+			
+			System.out.println("En kucuk sayi " + myArrayMin);
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-24)
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int myArraySize;
+			
+			float myArrayMean;
+			
+			float sum = 0;
+			
+			float[] myArray = new float[10];			
+			
+			System.out.print("Klavyeden kac adet tam sayi girilecegini giriniz: ");
+			
+			myArraySize = keyboard.nextInt();
+			
+			System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+			
+			for (int i = 0; i < myArraySize; i++){
+				
+				System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+				myArray[i] = keyboard.nextFloat();
+				
+			}
+			
+			for (int i = 0; i < myArraySize; i++){
+				
+				sum += myArray[i];
+				
+			}
+			
+			myArrayMean = (sum / myArraySize);
+			
+			System.out.println("Klavyeden girilen sayilarin ortalamasi " + myArrayMean);
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-25)
+
+import java.util.Scanner;
+
+class Inverter {
+	
+	int inputValue;
+	
+	Inverter (int i){
+		
+		inputValue = i;
+	
+	}
+	
+	int myInvert(){
+		
+		int invertResult = 0;
+		
+		int divider = 10;
+		
+		int digitCounter = 2;
+		
+		int temp;
+		
+		int tempValue = inputValue;
+		
+		while ((tempValue /= divider) >= 10) {
+			
+			digitCounter++;
+			
+		}
+
+		int[] myDigits = new int[digitCounter];
+		
+		for (int i = 0; i < digitCounter; i++){
+			
+			temp = inputValue % 10;
+			
+			inputValue /= 10; 
+			
+			myDigits[i] = temp;
+			
+		}
+		
+		for (int i = 0; i < digitCounter; i++){
+			
+			invertResult += myDigits[i];
+			
+			if (!(i == (digitCounter - 1) ))
+				invertResult *= 10;
+			
+		}
+		
+		return invertResult;
+		
+	}
+}
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			Scanner keyboard = new Scanner(System.in);
+
+			int myArraySize, tempPrinter;
+			
+			int[] myArray = new int[10];			
+			
+			System.out.print("Klavyeden kac adet tam sayi girilecegini giriniz: ");
+			
+			myArraySize = keyboard.nextInt();
+			
+			System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+			
+			for (int i = 0; i < myArraySize; i++){
+				
+				System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+				myArray[i] = keyboard.nextInt();
+				
+			}
+			
+			for (int i = 0; i < myArraySize; i++){
+				
+				Inverter mytempinvert = new Inverter(myArray[i]);
+				
+				tempPrinter = mytempinvert.myInvert();
+				
+				System.out.print(" " + tempPrinter + " ");
+			}
+			
+			System.out.println(" ");
+			
+			keyboard.close();
+			
+		}
+	}
+
+Soru-26)
+
+import java.util.Scanner;
+
+public class Driver {
+		
+		public static void main(String arg[]){
+			
+			int myLength;
+			
+			Scanner keyboard = new Scanner(System.in);
+			
+			String str;
+			
+			System.out.println("Metni giriniz: ");
+			
+			str = keyboard.nextLine();
+
+			myLength = str.length();
+			
+			System.out.println("Klavyeden girilen string' in uzunlugu " 
+			+ myLength + " harftir.");
+						
+			keyboard.close();
+			
+		}
+	}
+
+Soru-27) * Bu cevap incelenecek(Not: Nasil determinant alinir incele once)
+
+public class Driver {
+		
+	public int determinant (int[][] arr){
+		int sonuc = 0;
+		if (arr.length == 1){
+			sonuc = arr[0][0];
+			return sonuc;
+		}
+		if (arr.length == 2){
+			sonuc = arr[0][0]*arr[1][1] - arr[0][1]*arr[1][0];
+			return sonuc;
+		}
+		for (int i = 0; i < arr[0].length; i++){
+			int gecici[][] = new int[arr.length - 1][arr[0].length -1];
+			
+				for (int j = 1; j < arr.length; j++){
+					for (int k = 0; k < arr[0].length; k++){
+				
+						if( k < i){
+							gecici[j -1][k] = arr[j][k];
+						}else if (k > i){
+							gecici[j -1][k-1] = arr[j][k];
+						}
+				}
+			}
+			sonuc += arr[0][i]*Math.pow(-1, (int) i) * determinant(gecici);
+		}
+1		return sonuc;
+	}
+		public static void main(String arg[]){
+			
+			int myArr[][] = {{5,3,7,4},{2,4,9,6},{6,3,6,4}};
+			Driver d = new Driver();
+			int sonuc = d.determinant(myArr);
+			System.out.println(sonuc);
+			
+		}
+	}
+
+Soru-28)
+
+import java.util.Scanner;
+
+public class Driver {
+		
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		String str;
+		
+		System.out.println("Metni giriniz: ");
+		
+		str = keyboard.nextLine();
+		
+		System.out.println("Klavyeden girilen metin: " + str);
+
+		String reverse = new StringBuffer(str).reverse().toString();
+		
+		System.out.println("Klavyeden girilen metinin tersi " + reverse);
+					
+		keyboard.close();
+		
+	}
+}
+
+Soru-29)
+
+public class Driver {
+		
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		String str;
+		
+		System.out.println("Metni giriniz: ");
+		
+		str = keyboard.nextLine();
+
+		String[] strArr = str.split(" ");
+				
+		int length = strArr.length;
+		
+		System.out.println("Klavyeden girilen cumlenin kelimelerinin ilk harfleri");
+		
+		for (int i = 0; i < length; i++){
+			System.out.println(strArr[i].charAt(0));
+		}
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-30)
+
+import java.util.Scanner;
+
+public class Driver {
+		
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		String str;
+		
+		System.out.println("Metni giriniz: ");
+		
+		str = keyboard.nextLine();
+
+		String[] strArr = str.split(" ");
+				
+		int length = strArr.length;
+		
+		System.out.println("Klavyeden girilen cumlenin kelimelerinin ilk harfleri");
+		
+		for (int i = length -1; i >= 0 ; i--){
+			System.out.println(strArr[i]);
+		}
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-31)
+
+import java.util.Scanner;
+
+class Students {
+	
+	String name;
+	
+	float note;
+	
+	Students (String s, float n){
+		
+		name = s;
+		
+		note = n;
+		
+	}
+	
+}
+public class Driver {
+		
+	public static void main(String arg[]){
+		
+		System.out.println("Siniftaki ogrenci adedini giriniz");
+		
+		int studentCounter;
+		
+		String studentName;
+		
+		float studentNote;
+		
+		Scanner keyboard = new Scanner(System.in);
+	
+		studentCounter = keyboard.nextInt();
+		
+		Students[] newStudents = new Students[studentCounter];
+		
+		float sum = 0; //Ogrencilerin notlarinin toplami
+		
+		for (int i = 0; i < studentCounter; i++){
+			
+			System.out.print("Ogrencinin ismini giriniz: ");
+			
+			studentName = keyboard.next();
+			
+			System.out.print("Ogrencinin notunu giriniz: ");
+			
+			studentNote = keyboard.nextFloat();
+			
+			newStudents[i] = new Students(studentName, studentNote);
+			
+			sum += newStudents[i].note;
+			
+		}
+		
+		float mean = sum / studentCounter; //Ogrencilerin notlarinin ortalamasi
+
+		float maxNote = newStudents[0].note;
+		
+		String maxStudent = "No student";
+		
+		for(int i = 1; i < studentCounter; i++){
+			
+			if( newStudents[i].note > maxNote)
+				
+				maxNote = newStudents[i].note;
+			
+				maxStudent = newStudents[i].name;
+		}
+
+		System.out.println("Ogrencilerin notlarinin ortalamasi" + mean);
+
+		System.out.println("En yuksek notlu ogrenci" + maxStudent + "dir.");
+		
+		System.out.println("En yuksek notta bu ogrencinin notu olan" + maxNote + "tur.");
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-32)
+
+public class Driver {
+		
+	public static void main(String arg[]){
+		
+		int[] myArr = {5,7,4,21,-2,45,-23,98};
+	
+		int len = myArr.length;
+
+		int sum = 0;
+		
+		for (int i = 0; i < len; i++){
+			
+			if (myArr[i] < 0)
+			
+				sum += myArr[i];
+			
+		}
+		
+		System.out.println("Dizideki negatif sayilarin toplami: " + sum);
+	}
+}
+
+Soru-33)
+
+public class Driver {
+		
+	public static void main(String arg[]){
+		
+		int[] myArr = {5,7,4,21,-2,45,-23,98,0,31,0,-69};
+	
+		int len = myArr.length;
+
+		int zeroCounter = 0;
+		
+		int pozCounter = 0;
+		
+		int negCounter = 0;
+		
+		for (int i = 0; i < len; i++){
+			
+			if (myArr[i] < 0)
+			
+				negCounter++;
+			
+			else if (myArr[i] == 0)
+				
+				zeroCounter++;
+			
+			else
+				
+				pozCounter++;
+			
+		}
+		
+		System.out.println("Dizideki negatif sayilarin sayisi: " + negCounter);
+		
+		System.out.println("Dizideki pozitif sayilarin sayisi: " + pozCounter);
+
+		System.out.println("Dizideki sifirlarin sayisi: "   	 + zeroCounter);
+
+	}
+}
+
+Soru-34)
+
+public class Driver {
+		
+	private static int[] extendArray(int [] array, int newValue){
+        
+		int [] temp = array.clone();
+	    
+		array = new int[array.length + 1];
+	    				
+		System.arraycopy(temp, 0, array, 0, temp.length);
+        
+		array[array.length - 1] = newValue;
+        
+        return array;
+    }
+	
+	public static void main(String arg[]){
+		
+		int[] myArr = {5,7,4,21,-2,45,-23,98,0,31,0,-69};
+	
+		int[] negArr = new int[0];
+		
+		int[] pozArr = new int[0];
+		
+		for (int i = 0; i < myArr.length; i++){
+			
+			if(myArr[i] < 0){
+				
+				negArr = extendArray(negArr, myArr[i]);
+
+			}
+			else{
+	
+				pozArr = extendArray(pozArr, myArr[i]);
+				
+			}
+		}
+		
+		System.out.println("Dizideki:");
+		
+		System.out.println("Sayilar: ");
+		
+		for (int i = 0; i < myArr.length; i++){
+			
+			System.out.print(" " + myArr[i] + " ");
+		}
+		
+		System.out.println();
+		
+		System.out.println("Negatif sayilar: ");
+		
+		for (int i = 0; i < negArr.length; i++)
+			System.out.print(" " + negArr[i] + " ");
+		
+		System.out.println();
+		
+		System.out.println("Pozitif sayilar ve sifirlar");
+		
+		for (int i = 0; i < pozArr.length; i++)
+			System.out.print(" " + pozArr[i] + " ");
+
+		System.out.println();
+		
+		System.out.println("Bye");
+		
+	}
+}
+
+Soru-35)
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		int myArraySize;
+		
+		int[] myArray = new int[10];			
+		
+		System.out.print("Klavyeden dizinin boyutunu giriniz: ");
+		
+		myArraySize = keyboard.nextInt();
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		for (int i = 0; i < myArraySize; i++){
+			
+			System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+			myArray[i] = keyboard.nextInt();
+			
+		}
+		
+		float evenSum = 0;
+		
+		int evenCounter = 0;
+		
+		float evenMean;
+		
+		for (int i = 0; i < myArraySize; i++){
+			
+			if (myArray[i] % 2 == 0){
+				
+				evenSum += myArray[i];
+				
+				evenCounter++;
+			
+			}
+				
+		}
+		
+		evenMean = evenSum / evenCounter;
+		
+		System.out.println("Cift sayilarin ortalamasi: " + evenMean);
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+}
+
+Soru-37)
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		int myArrayRow;
+		int myArrayColumn;
+		
+		float sum = 0; // Esas kosegen uzerindeki elemanlarin toplami
+		int counter = 0; //Esas kosegen uzerindeki elemanlarin sayisi
+		
+		System.out.print("Klavyeden dizinin satir sayisini giriniz: ");
+		
+		myArrayRow = keyboard.nextInt();
+		
+		System.out.print("Klavyeden dizinin sutun sayisini giriniz: ");
+		
+		myArrayColumn = keyboard.nextInt();
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		int[][] myArray = new int[myArrayRow][myArrayColumn];			
+		
+		for (int i = 0; i < myArrayRow; i++)
+			for (int j = 0; j < myArrayColumn; j++){
+			
+			System.out.print("Klavyeden dizinin array[" + i + "][" + j + "].nci elemanini giriniz: ");
+
+			myArray[i][j] = keyboard.nextInt();
+			
+		}
+		
+		
+		for (int j = 0; j < myArrayColumn; j++){
+			
+			sum += myArray[j][j];
+			
+			counter++;
+			
+		}
+		
+		System.out.println("Esas kosegen uzerindeki elemanlarin toplami " + sum);
+		
+		System.out.println("Esas kosegen uzerindeki elemanlarin ortalamasi " + (sum / counter));
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+}
+
+
+Soru-38)
+
+public class Driver {
+		
+	static void rowandcolumnSummer (int myArr[][], int row, int column){
+
+		int rowSum;
+		int columnSum;
+
+		for (int i = 0; i < row; i++){
+			rowSum = 0;
+			for (int j = 0; j < column; j++){
+				rowSum += myArr[i][j];
+			}
+			System.out.println("Dizinin " + i + ".nci satirindaki sayilarin toplami" + rowSum);
+		}
+		
+		for (int i = 0; i < column; i++){
+			columnSum = 0;
+			for (int j = 0; j < row; j++){
+				columnSum += myArr[j][i];
+			}
+			System.out.println("Dizinin " + i + ".nci sutunundaki sayilarin toplami" + columnSum);
+		}
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		int myArrayRow;
+		int myArrayColumn;
+		
+		System.out.print("Klavyeden dizinin satir sayisini giriniz: ");
+		
+		myArrayRow = keyboard.nextInt();
+		
+		System.out.print("Klavyeden dizinin sutun sayisini giriniz: ");
+		
+		myArrayColumn = keyboard.nextInt();
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		int[][] myArray = new int[myArrayRow][myArrayColumn];			
+		
+		for (int i = 0; i < myArrayRow; i++)
+			for (int j = 0; j < myArrayColumn; j++){
+			
+			System.out.print("Klavyeden dizinin array[" + i + "][" + j + "].nci elemanini giriniz: ");
+
+			myArray[i][j] = keyboard.nextInt();
+			
+		}
+		
+		rowandcolumnSummer(myArray,myArrayRow,myArrayColumn);
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+}
+
+
+Soru-39)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		int myArrayRow;
+		int myArrayColumn;
+		
+		System.out.print("Klavyeden dizinin satir sayisini giriniz: ");
+		
+		myArrayRow = keyboard.nextInt();
+		
+		System.out.print("Klavyeden dizinin sutun sayisini giriniz: ");
+		
+		myArrayColumn = keyboard.nextInt();
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		int[][] myArray = new int[myArrayRow][myArrayColumn];			
+		
+		for (int i = 0; i < myArrayRow; i++)
+			for (int j = 0; j < myArrayColumn; j++){
+				System.out.print("Klavyeden dizinin array[" + i + "][" + j + "].nci elemanini giriniz: ");
+				myArray[i][j] = keyboard.nextInt();			
+		}
+		
+		for(int i = 0; i < myArrayRow; i++)
+			for(int j = 0; j < myArrayColumn; j++){
+				
+				if(!(myArray [i][j] == myArray[j][i])){
+					
+					System.out.println("Matris simetrik degildir");
+		
+					return;
+				}
+			}
+		
+		System.out.println("Matris simetriktir");
+		
+		for (int i = 0; i < myArrayRow; i++)
+			for (int j = 0; j < myArrayColumn; j++){
+			
+			System.out.print(" " + myArray[i][j] + " ");
+			
+			if(j == (myArrayColumn -1))
+				System.out.println();
+			
+		}
+			
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+}
+
+Soru-40)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		int myArrayRow;
+		int myArrayColumn;
+		float maxArr;
+		float minArr;
+		
+		System.out.print("Klavyeden dizinin satir sayisini giriniz: ");		
+
+		myArrayRow = keyboard.nextInt();
+		
+		System.out.print("Klavyeden dizinin sutun sayisini giriniz: ");
+		
+		myArrayColumn = keyboard.nextInt();
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		float[][] myArray = new float[myArrayRow][myArrayColumn];			
+		
+		for (int i = 0; i < myArrayRow; i++)
+			for (int j = 0; j < myArrayColumn; j++){
+				System.out.print("Klavyeden dizinin array[" + i + "][" + j + "].nci elemanini giriniz: ");
+				myArray[i][j] = keyboard.nextFloat();
+		}
+			
+		maxArr = myArray[0][0];
+		
+		for (int i = 0; i < myArrayRow; i++)
+			for (int j = 0; j < myArrayColumn; j++){
+				if(myArray[i][j] > maxArr)
+				maxArr = myArray[i][j];
+				
+		}
+		
+		System.out.println("Dizinin en buyuk elemani: " + maxArr);
+		
+		minArr = myArray[0][0];
+		
+		for (int i = 0; i < myArrayRow; i++)
+			for (int j = 0; j < myArrayColumn; j++){
+				if(myArray[i][j] < minArr)
+					minArr = myArray[i][j];
+							
+		}
+		
+		System.out.println("Dizinin en kucuk elemani: " + minArr);
+
+		
+		float bolum = (maxArr / minArr);
+		
+		System.out.println("Dizideki en buyuk elemanin en kucuk elemana bolumu: " + bolum);
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+}
+
+Soru-41)
+
+public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		String metin;
+		char character;
+		int sum = 0;
+		
+		System.out.print("Klavyeden metni giriniz: ");		
+
+		metin = keyboard.nextLine();
+		
+		for(int i = 0; i < metin.length(); i++){
+			character = metin.charAt(i);
+			if (Character.isDigit(metin.charAt(i))){
+				System.out.println(character);
+				sum += Character.getNumericValue(character);;
+			}
+		}
+		
+		System.out.println("Klavyeden girilen metindeki rakamlarin toplami: " + sum);
+		
+		keyboard.close();
+	}
+}
+
+Soru-42)
+
+public class Driver {
+
+	private static void percentArray(double [] array, double arrPer[], int index, double sum){
+        
+		double percent = array[index] / sum;
+        
+		arrPer[index] = (percent*100);
+		
+	}
+	
+	public static void main(String arg[]){
+		
+		double arr[] = {4,18,15,16,23,42};
+		
+		double sum = 0;
+
+		double arrPercent[] = new double[arr.length];
+		
+		for (int i = 0; i < arr.length; i++){
+			
+			sum += arr[i];
+		}
+		
+		for (int i = 0; i < arr.length; i++)
+			
+			percentArray(arr,arrPercent,i,sum);
+		
+		for (int i = 0; i < arrPercent.length; i++){
+			
+			System.out.print(i + ".nci elemanin toplama orani" + arrPercent[i]);
+			
+			System.out.println();
+
+		}
+		
+		System.out.println();
+		
+	}
+}
+
+Soru-43)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int myValue;
+		
+		System.out.print("Klavyeden bir sayi giriniz: ");
+		
+		myValue = keyboard.nextInt();
+		
+		if (myValue%2 == 0)
+			System.out.println("Girilen sayi cifttir");
+		else
+			System.out.println("Girilen sayi tektir");
+		
+		System.out.println();
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-44)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int myValue1;
+		
+		System.out.print("Klavyeden bir sayi giriniz: ");
+		
+		myValue1 = keyboard.nextInt();
+		
+		int myValue2;
+
+		System.out.print("Klavyeden ikinci bir sayi giriniz: ");
+
+		myValue2 = keyboard.nextInt();
+		
+		System.out.println("Birinci sayinin ikinci sayiya bolumu " 
+		+ (myValue1 / myValue2) + " kalan: " + myValue1%myValue2);
+				
+		System.out.println();
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-45)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+
+		Scanner keyboard = new Scanner(System.in);
+
+		int myArraySize;
+		
+		float[] myArray = new float[0];			
+		
+		System.out.print("Klavyeden dizinin boyutunu giriniz: ");
+		
+		myArraySize = keyboard.nextInt();
+		
+		myArray = new float[myArraySize];
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		for (int i = 0; i < myArraySize; i++){
+			
+			System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+			myArray[i] = keyboard.nextFloat();
+			
+		}
+		
+		float sum = 0;
+		
+		for (int i = 0; i < myArraySize; i++){
+			
+				sum += myArray[i];
+				
+		}
+				
+		System.out.println("Sayilarin toplami: " + sum);
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+		
+}
+
+Soru-46)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+
+		Scanner keyboard = new Scanner(System.in);
+
+		int myArraySize;
+		
+		float[] myArray = new float[0];			
+		
+		System.out.print("Klavyeden dizinin boyutunu giriniz: ");
+		
+		myArraySize = keyboard.nextInt();
+		
+		myArray = new float[myArraySize];
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		for (int i = 0; i < myArraySize; i++){
+			
+			System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+			myArray[i] = keyboard.nextFloat();
+			
+		}
+		
+		System.out.println("Cift sayilar:");
+		
+		for (int i = 0; i < myArray.length; i++){
+			
+			if (myArray[i] %2 == 0)
+				System.out.print(" " + myArray[i] + " ");
+		}
+				
+		System.out.println();
+		
+		System.out.println("Tek sayilar:");
+		
+		for (int i = 0; i < myArray.length; i++){
+			
+			if (myArray[i] %2 == 1)
+				System.out.print(" " + myArray[i] + " ");
+		}
+				
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+		
+}
+
+Soru-47)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		float myValue;
+		
+		System.out.println("Klavyeden bir sayi giriniz: ");
+		
+		myValue = keyboard.nextFloat();
+		
+		float myArray[] = {25,22,17,19,47,3,98,5,124,10};
+	
+		System.out.println("Klavyeden girdigimiz sayidan buyuk olan dizideki sayilar sunlardir" );
+		
+		for (int i = 0; i < myArray.length; i++){
+			
+			if(myArray[i] > myValue)
+				System.out.println(myArray[i]);
+		}
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+		
+}
+
+Soru-48)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		float myValue;
+		
+		System.out.println("Klavyeden bir sayi giriniz: ");
+		
+		myValue = keyboard.nextFloat();
+		
+		float myArray[] = {25,22,17,19,47,3,98,5,124,10};
+	
+		System.out.println("Klavyeden girdiginiz sayiya tam bolunen dizi elemanlari: " );
+		
+		for (int i = 0; i < myArray.length; i++){
+			
+			if(myArray[i] % myValue == 0)
+				
+				System.out.println(myArray[i]);
+			
+		}
+		
+		System.out.println("Bye");
+		
+		keyboard.close();
+	}
+		
+}
+
+Soru-49)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		int myValue;
+		
+		int myArray[] = {25,22,17,19,47,3,98,5,124,10};
+
+		System.out.println("Klavyeden bir sayi giriniz: ");
+		
+		int counter = 1;
+		
+		while ((myValue = keyboard.nextInt()) > 0 && myValue < 11) {				
+
+			int orderCounter = myValue;
+
+			if (myValue < 0 && myValue > 11){
+				System.out.println("Klavyeden gecerli bir sayi giriniz!");
+				break;
+			}
+			
+			for (int i = 0; i < myArray.length; i++){
+				
+				counter = 1;
+				
+				for (int j = 0; j < i; j++){
+					if (myArray[i] > myArray[j])
+						counter++;
+					if (counter > orderCounter){
+						break;
+					}			
+				}
+				
+				for (int j = i + 1; j < myArray.length; j++){
+					if (myArray[i] > myArray[j])
+						counter++;
+					if (counter > orderCounter)
+						break;
+				}			
+					
+				if (counter == orderCounter){
+						System.out.println(orderCounter + ".nci kucuk sayi " + myArray[i]);
+						break;
+				}
+			 }
+			
+			System.out.println("Yeni sira girebilirsiniz");
+			
+		}
+		
+		System.out.println("Bye");
+
+		keyboard.close();
+	}
+		
+}
+
+Soru-50)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		int myArr[][] = {{3,5,6},{4,2,3},{4,8,7}};
+		
+		for (int i = 0; i < 3; i++){
+			for (int j = 0; j < 3; j++){
+				System.out.print(" " + myArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Bye");
+
+	}
+		
+}
+
+Soru-51)
+
+public class Driver {
+
+	private static void rowSumArray(int [][] array, int row, int column){
+        
+		for(int i = 0; i < row; i++){
+			int rowSum = 0;
+			for(int j = 0; j < column; j++){
+				rowSum += array[i][j];
+			}
+			System.out.println(i + ".nci satirin elemanlari toplami: " + rowSum);
+		}
+	}
+	
+	private static void columnSumArray(int [][] array, int row, int column){
+        
+		for(int j = 0; j < column; j++){
+			int columnSum = 0;
+			for(int i = 0; i < row; i++){
+				columnSum += array[i][j];
+			}
+			System.out.println(j + ".nci sutunun elemanlari toplami: " + columnSum);
+		}
+				
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int[][] myArr = new int[3][3];
+		
+		System.out.println("Diznin elemanlarini giriniz");
+		
+		for (int i = 0; i < 3; i++){
+			for (int j = 0; j < 3; j++){
+				myArr[i][j] = keyboard.nextInt();
+			}
+		}
+		
+		rowSumArray(myArr, 3, 3);
+		
+		columnSumArray(myArr, 3, 3);
+		
+		System.out.println("Bye");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-52)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int[][] myArr = new int[5][5];
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				if (j == i)
+					myArr[i][j] = 1;
+				else
+					myArr[i][j] = 0;
+			}
+		}
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				System.out.print(" " + myArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Bye");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-53)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int[][] myArr = new int[5][5];
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				if (j <= i)
+					myArr[i][j] = 1;
+				else
+					myArr[i][j] = 0;
+			}
+		}
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				System.out.print(" " + myArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Bye");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-54)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int[][] myArr = new int[5][5];
+		
+		int counter;
+		
+		for (int i = 0; i < 5; i++){
+			counter = 1;
+			for (int j = 0; j < 5; j++){
+				if (j <= i)
+					myArr[i][j] = counter++;
+				else
+					myArr[i][j] = 0;
+			}
+		}
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				System.out.print(" " + myArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Bye");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-55)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		int[][] myArr = new int[5][5];
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				if (j % 2 == 0 )
+					myArr[i][j] = 1;
+				else
+					myArr[i][j] = 0;
+			}
+		}
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				System.out.print(" " + myArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Bye");
+		
+	}
+		
+}
+
+
+Soru-56)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		int[][] myArr = new int[5][5];
+		
+		for (int i = 0; i < 5; i++){
+			if(i % 2 == 1 )
+				for (int j = 0; j < 5; j++){
+					if (j % 2 == 0 )
+						myArr[i][j] = 1;
+					else
+						myArr[i][j] = 0;
+				}
+			else if (i % 2 == 0)
+				for (int j = 0; j < 5; j++){
+					myArr[i][j] = 1;
+				}
+		}
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				System.out.print(" " + myArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Bye");
+		
+	}
+		
+}
+
+
+Soru-57)
+
+public class Driver {
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int[][] myArr = new int[5][5];
+		
+		int myValue;
+		
+		System.out.println("4x4' lük dizinin elemanlarini giriniz: ");
+		for (int i = 0; i < 4; i++){
+			for (int j = 0; j < 4; j++){
+				System.out.print(i + ".nci satir" + j + ".nci sutun degerini giriniz: ");
+				myArr[i][j] = keyboard.nextInt();
+			}
+		}
+		
+		System.out.print("Dizide aranilacak degeri giriniz: ");
+		
+		myValue = keyboard.nextInt();
+		
+		for (int i = 0; i < 5; i++){
+			for (int j = 0; j < 5; j++){
+				if (myArr[i][j] == myValue)
+					System.out.println("Aranilan deger olan " + myValue + " degeri " + i + ".nci satir ve " + j + ".nci sutunda bulundu.");
+			}
+		}
+		
+		System.out.println("Hoscakalin");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-58)
+
+public class Driver {
+
+	private static void maxValue (int myValue1, int myValue2){
+        
+		if(myValue1 > myValue2)
+			System.out.println("Buyuk olan sayi " + myValue1);
+		else
+			System.out.println("Buyuk olan sayi " + myValue2);
+			
+	}
+	
+	private static void minValue (int myValue1, int myValue2){
+        
+		if(myValue1 < myValue2)
+			System.out.println("Kucuk olan sayi " + myValue1);
+		else
+			System.out.println("Kucuk olan sayi " + myValue2);
+			
+	}
+
+	private static void maxDoubleValue (double myValue1, double myValue2){
+        
+		if(myValue1 > myValue2)
+			System.out.println("Buyuk olan sayi " + myValue1);
+		else
+			System.out.println("Buyuk olan sayi " + myValue2);
+			
+	}
+	
+	private static void minDoubleValue (double myValue1, double myValue2){
+        
+		if(myValue1 < myValue2)
+			System.out.println("Kucuk olan sayi " + myValue1);
+		else
+			System.out.println("Kucuk olan sayi " + myValue2);
+			
+	}
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int myValue1, myValue2;
+		
+		double myValueD1, myValueD2;
+		
+		System.out.println("Ilk degeri giriniz: ");
+		
+		myValue1 = keyboard.nextInt();
+		
+		System.out.println("Ikinci degeri giriniz: ");
+		
+		myValue2 = keyboard.nextInt();
+		
+		maxValue(myValue1, myValue2);
+		
+		minValue(myValue1,myValue2);
+		
+		System.out.println("Ilk double degeri giriniz: ");
+		
+		myValueD1 = keyboard.nextDouble();
+		
+		System.out.println("Ikinci double degeri giriniz: ");
+		
+		myValueD2 = keyboard.nextDouble();
+		
+		maxDoubleValue(myValueD1, myValueD2);
+		
+		minDoubleValue(myValueD1, myValueD2);
+		
+		
+		
+		System.out.println("Hoscakalin");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+soru-59)
+
+public class Driver {
+
+	private static void squareValue (double myValue){
+		
+		double squareValue;
+		
+		squareValue = myValue*myValue;
+		
+		System.out.println("Girdiginiz sayinin karesi " + squareValue);
+			
+	}
+	
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		double myValue;
+		
+		System.out.println("Degeri giriniz: ");
+		
+		myValue = keyboard.nextDouble();
+		
+		squareValue(myValue);
+				
+		System.out.println("Hoscakalin");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-60)
+
+public class Driver {
+
+	private static void squareValue (double myValue1, double myValue2){
+		
+		double squareValue = 1;
+		
+		double temp = myValue1;
+		
+		for (int i = 0; i < myValue2; i++){
+			squareValue *= temp;
+		}
+		System.out.println(squareValue);
+			
+	}
+	
+
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		double myValue1 = 5;
+		double myValue2 = 2;
+		
+		System.out.print("5 in 2 inci cinsinden kuvveti: ");
+		
+		squareValue(myValue1, myValue2);
+				
+		System.out.println("Hoscakalin");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-61)
+
+public class Driver {
+
+	private static double cevreHesapla (double yaricap){
+		
+		double cevre;
+		
+		double pi = 3.14;
+		
+		return (cevre = 2 * pi* yaricap);
+			
+	}
+	
+	private static double alanHesapla (double yaricap){
+		
+		double alan;
+		
+		double pi = 3.14;
+		
+		return (alan = pi* yaricap * yaricap);
+			
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		double yaricap = 5;
+		
+		double cevre = cevreHesapla(yaricap);
+		
+		System.out.println("Dairenin cevresi " + cevre);
+
+		double alan = alanHesapla(yaricap);
+		
+		System.out.println("Dairenin alani " + alan);
+
+		System.out.println("Hoscakalin");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-62)
+
+public class Driver {
+
+	private static double asalBulucu (double myValue){
+		
+		for (int i = 2; i < myValue; i++){
+			
+			if (myValue % i == 0){
+				
+				return 0;
+			}
+			else 
+				continue;
+
+		}
+		
+		return 1;
+		
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		double myValue;
+		
+		System.out.print("Klavyeden asalligi test edilecek elemani giriniz: ");
+		
+		myValue = keyboard.nextInt();
+		
+		if (asalBulucu(myValue) == 1)
+			System.out.print("Klavyeden girilen sayi asal");
+		else if(asalBulucu(myValue) == 0)
+			System.out.print("Klavyeden girilen sayi asal degil");
+
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-63)
+
+public class Driver {
+
+	private static double asalBulucu (double myValue){
+		
+		for (int i = 2; i < myValue; i++){
+			
+			if (myValue % i == 0){
+				
+				return 0;
+			}
+			else 
+				continue;
+		}
+		
+		return 1;
+		
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+
+		double myValue;
+		
+		System.out.print("Klavyeden icindeki asal sayilarin tespit edilecegi sayiyi giriniz: ");
+		
+		myValue = keyboard.nextInt();
+		
+		if (myValue == 2){
+			
+			System.out.print(" " + myValue + " ");
+		}
+		else if (myValue > 2){
+			System.out.print(" 2.0");
+			for (double i = 3; i <= myValue; i++){
+				if (asalBulucu(i) == 1)
+					System.out.print(" " + i + " ");
+			}
+			
+		}
+		keyboard.close();
+		
+	}
+		
+}
+
+Soru-64)
+
+public class Driver {
+
+	private static double diziToplayici (double myArray[], int size){
+		
+		double sum = 0;
+		
+		for (int i = 0; i < size; i++){
+			
+			sum += myArray[i];
+			
+		}
+		return sum;
+		
+	}
+	
+	public static void main(String arg[]){
+		
+		double myArray[] = {2,4,6,5,10};
+		
+		double sum;
+		
+		sum = diziToplayici(myArray, 5);
+		
+		System.out.print("Dizi elemanlarinin toplami " + sum);
+		
+	}
+		
+}
+
+Soru-65)
+
+public class Driver {
+	
+	private static int enBuyuk(int myArray[], int size){
+		
+		int myArrayMax = myArray[0];
+		
+		for (int i = 0; i < 10 ; i++){
+			
+			if (myArray[i] > myArrayMax)
+			
+				myArrayMax = myArray[i];
+						
+		}
+		
+		return myArrayMax;
+		
+	}
+
+	private static int enKucuk(int myArray[], int size){
+		
+		int myArrayMin = myArray[0];
+		
+		for (int i = 0; i < 10 ; i++){
+			
+			if (myArray[i] < myArrayMin)
+			
+				myArrayMin = myArray[i];
+						
+		}
+		
+		return myArrayMin;
+		
+	}
+	
+	public static void main(String arg[]){
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int min, max;
+		
+		int[] myArray = new int[10];			
+		
+		System.out.println("Klavyeden dizinin elemanlarini giriniz: ");
+		
+		for (int i = 0; i < 10; i++){
+			
+			System.out.print("Klavyeden dizinin " + i + ".nci elemanini giriniz: ");
+
+			myArray[i] = keyboard.nextInt();
+			
+		}
+		
+		min = enKucuk(myArray, 10);
+		
+		max = enBuyuk(myArray, 10);
+		
+		System.out.println("Dizideki en kucuk eleman " + min);
+		
+		System.out.println("Dizideki en buyuk eleman " + max);
+		
+		keyboard.close();
+		
+	}
+}
+
+Soru-66)
+
+public class Driver {
+	
+	private static int diziSiraBulucu (int myArray[], int size, int n){
+		
+		int orderCounter = 1;
+		int myValue = 0;
+		
+		for (int i = 0; i < size; i++){
+			orderCounter = 1;
+			myValue = myArray[i];
+			for (int j = 0; j < size; j++){
+			
+				if (myValue > myArray[j])
+					orderCounter++;
+		
+			}
+			
+			if (orderCounter == n)		
+				return myValue;
+		}
+		
+		return 0;
+
+	}
+	
+	public static void main(String arg[]){
+		
+		int myArray[] = {25,22,17,19,47,3,98,5,124,10};
+		
+		int myValue;
+		
+		myValue = diziSiraBulucu(myArray, 10, 4);
+
+		System.out.println(4 + ".ncu en kucuk sayi " + myValue);
+
+		System.out.println("Bye");
+
+	}
+}
+
+Soru-67)
+
+public class Driver {
+	
+	private static void rowSumArray(int [][]array, int row){
+        
+		for(int i = 0; i < row; i++){
+			int rowSum = 0;
+			for(int j = 0; j < 5; j++){
+				rowSum += array[i][j];
+			}
+			System.out.println(i + ".nci satirin elemanlari toplami: " + rowSum);
+		}
+	}
+	
+	public static void main(String arg[]){
+		
+		int myArray[][] = {{25,22,17,19,47},{3,98,5,124,10}};
+		
+		rowSumArray(myArray, 2);
+
+		System.out.println("Bye");
+
+	}
+}
+
+Soru-68)
+
+public class Driver {
+	
+	private static void sumArray(int [][] array, int row, int column){
+        
+		for(int i = 0; i < row; i++){
+			int rowSum = 0;
+			for(int j = 0; j < column; j++){
+				rowSum += array[i][j];
+			}
+			System.out.println(i + ".nci satirin elemanlari toplami: " + rowSum);
+		}
+		
+		for(int j = 0; j < column; j++){
+			int columnSum = 0;
+			for(int i = 0; i < row; i++){
+				columnSum += array[i][j];
+			}
+			System.out.println(j + ".nci sutunun elemanlari toplami: " + columnSum);
+		}
+	}
+	
+		
+	public static void main(String arg[]){
+		
+		int myArray[][] = {{25,22,17,19,47},{3,98,5,124,10}};
+		
+		sumArray(myArray, 2, 5);
+
+		System.out.println("Bye");
+
+	}
+}
+
+Soru-69)
+
+public class Driver {
+	
+	private static int ikiBoyutSiralama (int myArray[][], int row, int column, int n){
+		
+		int orderCounter;
+		int myValue = 0;
+		
+		for (int i = 0; i < row; i++)
+			for (int j = 0; j < column; j++){
+			orderCounter = 1;
+			myValue = myArray[i][j];
+			for (int k = 0; k < row; k++)
+				for (int l = 0; l < column; l++){
+			
+				if (myValue < myArray[k][l])
+					orderCounter++;
+		
+			}
+			
+			if (orderCounter == n)		
+				return myValue;
+		}
+		
+		return 0;
+
+	}
+	
+	public static void main(String arg[]){
+		
+		int myArray[][] = {{18,12,11},{9,8,5},{3,2,0}};		
+		
+		int order = 1;
+		
+		for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 3; j++){
+				myArray[i][j] = ikiBoyutSiralama(myArray, 3, 3, order++);
+				if(order == 10)
+					break;
+			}
+			
+		for (int i = 0; i < 3; i++){
+			for (int j = 0; j < 3; j++){
+				System.out.print(" " + myArray[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("Bye");
+
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
