@@ -1,5 +1,5 @@
 # javaArmerkomOdevler
---------------------------------------------ALGORITMA70_SORU----------------------------------------------------------------------------
+--------------------------------------------ALGORITMA70_SORU-------------------------------------------------------------------------
 Soru-1)
 
 import java.util.Scanner;
@@ -2900,6 +2900,8 @@ public class Driver {
 -------------------------------------------------------------------------------------------------------------------------------------
 ********************************************algoritma_prog_guz_2012_odev_1***********************************************************
 Soru-1)
+a) (3910)10 = (7506)8 = (F46)16 b) (1010010.00101011100001010001111010111000010100011110101110000101000)2 = (66,234375)8
+c) (01101)2 (01100)2
 
 Soru-3)
 
@@ -4530,4 +4532,149 @@ public class Driver {
 	}
 	
 }
+-------------------------------------------------------------------------------------------------------------------------------------
+***************************************************AlgoritmaveProgramlamaI_Odev1****************************************************
+Soru-1)
+import java.util.Scanner;
+
+public class UceBolunen {
+
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+			
+		int[] arr = new int[10];
+		
+		for (int i = 0; i< 10; i++){
+			System.out.print("Sayi giriniz: ");
+			arr[i] = in.nextInt();
+		}
+		
+		System.out.println("Klavyeden girilen sayilardan 3' e bolunebilenler: ");
+		for (int i = 0; i < 10; i++){
+			if (arr[i] % 3 == 0)
+				System.out.print(" " + arr[i] + " ");
+		}
+		
+		in.close();
+	}
+}
+
+Soru-2)
+
+import java.util.Scanner;
+
+public class Sehir {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);	
+			
+			System.out.print("Klavyeden bir karakter giriniz: ");
+			
+			char myChar = in.nextLine().charAt(0);
+		
+			switch(myChar){
+			
+				case 'a': System.out.println("ANKARA");
+					break;
+				case 'b': System.out.println("BURSA");
+					break;
+				case 'r': System.out.println("BURSA");
+					break;
+				case 't': System.out.println("BURSA");
+					break;
+				case 'd': System.out.println("DENIZLI");
+					break;
+				case 'e': System.out.println("EDIRNE");
+					break;
+				case 'f': System.out.println("EDIRNE");
+					break;
+				case 'k': System.out.println("KIRIKKALE");
+					break;
+				default:
+					System.out.println("Girdiginiz harfin karsilik sehri yoktur.");
+			
+			}
+			
+			in.close();
+		
+	}
+	
+}
+
+Soru-3)
+
+import java.util.Scanner;
+
+public class EnBuyuk {
+
+	private static int max(int arr[], int size){
+		
+		int max = arr[0];
+		
+		for (int i = 1; i < size; i++){
+			if (arr[i] > max)
+				max = arr[i];
+		}
+		return max;
+	}
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int maxValue;
+		
+		int[] arr = new int[10];
+		
+		for (int i = 0; i< 10; i++){
+			System.out.print("Sayi giriniz: ");
+			arr[i] = in.nextInt();
+		}
+		
+		maxValue = max(arr, arr.length);
+		
+		System.out.println("Klavyeden girilen sayilardan en buyugu: " + maxValue);
+		
+		in.close();
+	}
+}
+
+Soru-4)
+
+import java.util.Scanner;
+
+public class Driver {
+	
+	public static void main(String arg[]){
+			
+			Scanner in = new Scanner(System.in);
+			
+			System.out.print("Klavyeden sayiyi giriniz: ");
+			
+			int sayi = in.nextInt();
+			
+			int bolucu = 10;
+			
+			int bolum;
+			
+			System.out.println("Klavyeden girilen sayinin tersi: ");
+
+			System.out.print(sayi % bolucu);
+
+			bolum = sayi / bolucu;	
+			
+			do{
+				System.out.print(bolum % bolucu);
+			}
+			while ((bolum /= bolucu) != 0);
+			
+			System.out.println();
+
+			in.close();
+		
+	}
+	
+}
+-------------------------------------------------------------------------------------------------------------------------------------
 
