@@ -726,6 +726,34 @@ public class Driver {
 
 Soru-17)
 
+import java.util.Scanner;
+
+public class Days {
+
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int myDay;
+		
+		String day[] = {"Pazartesi", "Sali", "Carsamba", "Persembe", "Cuma", "Cumartesi", "Pazar"};
+		
+		System.out.print("1 ile 7 arasinda bir sayi giriniz: ");
+		
+		myDay = in.nextInt();
+		
+		for (int i = 1; i <= 7; i++){
+			
+			if (i == myDay)
+				System.out.print("Girdiginiz rakama karsilik gelen gun: " + day[myDay - 1]);
+			
+		}
+		
+		in.close();
+	}
+}
+
+
 Soru-18) 
 
 public class Driver {
@@ -758,7 +786,59 @@ public class Driver {
 			
 		}
 	}
-Soru-19) Bu soruya bakilacak?
+Soru-19) 
+
+import java.util.Scanner;
+
+public class Dividing {
+	
+	private static int divider(int divided, int divisor){
+		
+		int divide = 0;
+		
+		if (divisor != 0){
+			if((divided > 0 && divisor > 0) || (divided < 0 && divisor < 0))
+				while (divided >= divisor){
+					divided -= divisor;
+					divide++;
+				} 
+			else if ((divided < 0 && divisor > 0))
+				while ((-divided) >= divisor ){
+					divided += divisor;
+					divide--;
+				}
+			else if ((divided > 0 && divisor < 0))
+				while (divided >= (-1 * divisor)){
+					divided += divisor;
+					divide--;
+				}
+		}else
+			System.out.println("Bolum sonsuzdur.");
+				
+ 		return divide;
+	}
+
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int myDivided;
+		
+		int myDivisor;
+		
+		System.out.print("Bolunecek sayiyi giriniz: ");
+		
+		myDivided = in.nextInt();
+		
+		System.out.print("Bolen sayiyi giriniz: ");
+		
+		myDivisor = in.nextInt();
+		
+		System.out.println("Bolum: " + divider(myDivided, myDivisor));
+		
+		in.close();
+	}
+}
 
 Soru-20) 
 
@@ -2897,11 +2977,76 @@ public class Driver {
 
 	}
 }
+
+Soru-70)
+
+import java.util.Scanner;
+
+public class Fibonacci {
+	
+	private static int fibo(int n){
+		
+		if (n < 2)
+			return n;
+		else				
+ 		return fibo(n-1) + fibo(n-2);
+	
+	}
+
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int myFiboNum;
+		
+		System.out.print("Fiboniacci dizinin kacinci elemanini gireceksiniz: " );
+		myFiboNum = in.nextInt();
+		
+		System.out.println("Fiboniacci eleman: " + fibo(myFiboNum));
+		
+		in.close();
+	}
+}
+
 -------------------------------------------------------------------------------------------------------------------------------------
 ********************************************algoritma_prog_guz_2012_odev_1***********************************************************
 Soru-1)
 a) (3910)10 = (7506)8 = (F46)16 b) (1010010.00101011100001010001111010111000010100011110101110000101000)2 = (66,234375)8
 c) (01101)2 (01100)2
+
+Soru-2)
+
+import java.util.Scanner;
+
+public class Algoritma {
+
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int X, N;
+		
+		X = 1;
+		N = 3;
+		
+		int Enb = X;
+		
+		for (int i = 1; i < N; i++){
+			
+			System.out.print("Yeni X degeri giriniz: ");
+			
+			X = in.nextInt();
+			
+			System.out.print("Enb: " + Enb + " i: " + i);
+			if(Enb > X == false){
+				Enb = X;
+			}
+			System.out.println(" " + "Yeni Enb: " + Enb);
+		}
+		
+		in.close();
+	}
+}
 
 Soru-3)
 
@@ -2982,6 +3127,31 @@ public class Driver {
 ------------------------------------------------------------------------------------------------------------------------------------
 *******************************algoritma_prog_guz_2012_odev_2************************************************************************
 Soru-1)
+
+import java.util.Scanner;
+
+public class AlgıoKarsilastirma {
+
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int A[]	 = {4, -2, 7};
+		int B[] = {2, 7, 4};
+		
+		int S = 0;
+		
+		for (int i = 1; i <= 3; i++)
+			for (int j = 1; j <= 1; j++){
+				if (A[i] == B[j])
+					S += 1;
+			}
+		
+		System.out.println("S degeri: " + S);
+		
+		in.close();
+	}
+}
 
 Soru-2)
 
@@ -3306,6 +3476,34 @@ public class Driver {
 }
 	
 Soru-2)
+
+import java.util.Scanner;
+
+public class Fibonacci {
+	
+	private static int fibo(int n){
+		
+		if (n < 2)
+			return n;
+		else				
+ 		return fibo(n-1) + fibo(n-2);
+	
+	}
+
+	public static void main(String arg[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int myFiboNum;
+		
+		System.out.print("Fiboniacci dizinin kacinci elemanini gireceksiniz: " );
+		myFiboNum = in.nextInt();
+		
+		System.out.println("Fiboniacci eleman: " + fibo(myFiboNum));
+		
+		in.close();
+	}
+}
 
 Soru-3)
 
