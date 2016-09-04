@@ -4876,3 +4876,176 @@ public class Driver {
 }
 -------------------------------------------------------------------------------------------------------------------------------------
 
+***********************************************************javaodev-1****************************************************************
+
+Soru-1) “temel tip tanımlamalarının” bilgisayarın RAM hafızasında nasıl yer aldığını araştırınız. Örnekle açıklayınız.
+
+Java' da Primitive data tipleri tanımlandıklatı zaman RAM' e yerleştirilirler ve RAM' de lokal stack kullanılır.
+new operatörü kullanılarak bir sınıfın data  member' i oluşturuluyorsa heap alanı kullanılır.
+
+Soru-2)
+ 
+import java.util.Scanner;
+
+class Fact {
+
+	int factValue;
+
+	Fact(int f){
+
+    	factValue = f;
+	}
+
+	long myFactResult(){
+
+		long factResult = 1;
+
+    	for (int i = 1; i <= factValue; i++)
+        	factResult *= i;
+
+    	return factResult;
+	}
+}
+
+public class Driver { public static void main(String arg[]){
+
+	    long factResult;
+	
+	    int myint;
+	
+	    Scanner keyboard = new Scanner(System.in);
+	
+	    System.out.print("Faktoriyeli alinacak degeri giriniz: ");
+
+    	myint = keyboard.nextInt();
+
+        Fact myfact = new Fact(myint);
+
+        factResult = myfact.myFactResult();
+
+        System.out.println("Klavyeden girilen deger: " + myint);
+
+        System.out.println("Klavyeden girilen degerin faktöriyeli: " + factResult);
+
+    	System.out.println("Bye");
+    	
+    	keyboard.close();
+    	
+	}
+}   
+
+Soru-3)
+
+import java.util.Scanner;
+
+class OzelToplayici {
+
+	private int baslangic;
+	private int son;
+	private int aralik;
+
+	OzelToplayici(int b, int s, int a){
+
+    	baslangic = b;
+    	son = s;
+    	aralik = a;
+	}
+
+	int OzelToplayiciSonuc(){
+
+		int toplam = 0;
+
+    	for (int i = baslangic; i <= son;i+=aralik){
+        	toplam += i;
+    		
+		}
+    	return toplam;
+	}
+	
+}
+
+public class Driver { public static void main(String arg[]){
+
+	    int basla, bit, arttir, sonuc;
+	
+	    Scanner keyboard = new Scanner(System.in);
+	
+	    System.out.print("Baslangic degerini giriniz: ");
+
+    	basla = keyboard.nextInt();
+
+    	System.out.print("Bitis degerini giriniz: ");
+    	
+    	bit = keyboard.nextInt();
+        
+    	System.out.print("Arttirma degerini giriniz: ");
+    	
+    	arttir = keyboard.nextInt();
+    	
+    	OzelToplayici myValue = new OzelToplayici(basla, bit, arttir);
+
+        sonuc = myValue.OzelToplayiciSonuc();
+
+        System.out.println("Klavyeden girilen araliktaki istenilen arttis ile artan sayilarin toplami: " + sonuc);
+
+    	System.out.println("Bye");
+    	
+    	keyboard.close();
+    	
+	}
+}
+
+Soru-4)
+
+import java.util.Scanner;
+
+class Maksimum {
+
+	int maksimumBulucu(int[] myarr, int size){
+
+		int max = 0;
+		max = myarr[0];
+    	for (int i = 1; i < size; i++){
+        	
+    		if (myarr[i] > max)
+    			max = myarr[i];
+		}
+    	return max;
+	}
+	
+}
+
+public class Driver { public static void main(String arg[]){
+
+	    int maksimum, size;
+	
+	    Scanner keyboard = new Scanner(System.in);
+	
+	    System.out.print("Kaç eleman gireceginizi giriniz: ");
+
+	   size = keyboard.nextInt();
+
+    	   int[] newArr = new int[size];
+    	
+    	   System.out.print("Ilk sayiyi giriniz: ");
+    	
+    	   for (int i = 0; i < size; i++){
+    		
+    		newArr[i] = keyboard.nextInt();
+    		
+    		if (i != size -1)
+    			System.out.print("Yeni degeri giriniz: ");
+    	   }
+    	
+            Maksimum myValue = new Maksimum();
+
+            maksimum = myValue.maksimumBulucu(newArr, size);
+
+            System.out.println("Klavyeden girilen sayilardan en buyugu: " + maksimum);
+
+    	    System.out.println("Bye");
+    	
+    	    keyboard.close();
+    	
+	}
+}
